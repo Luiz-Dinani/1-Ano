@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 43 - Norma Ligna</title>
+</head>
+<body>
+    <input id="Nota1" placeholder="Insira sua primeira nota"><br>
+    <input id="Nota2" placeholder="Insira sua segunda nota"><br>
+    <input id="Nota3" placeholder="Insira sua terceira nota"><br>
+    <button onclick="analisar()">Analisar Desempenho</button>
+    <div id="Desempenho"></div>
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var N1 = Number(Nota1.value);
+        var N2 = Number(Nota2.value);
+        var N3 = Number(Nota3.value);
+        var Media = (N1+N2+N3)/3;
+
+        Desempenho.innerHTML = `<strong>Sua média foi de ${Media}.<\strong>`
+
+        if (Media>=9.4){
+            Desempenho.innerHTML += `<strong>Parabéns, você é fora de série!<\strong>`
+        }
+        
+    }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 52 - toFixed();</title>
+</head>
+<body>
+    <input id="Num1" placeholder="Insira o dividendo aqui"><br>
+    <input id="Num2" placeholder="Insira o divisor aqui"><br>
+    <button onclick="dividir()">Dividir</button><br>
+    <div id="Resultado"></div>
+    <span id="span"></span>
+</body>
+</html>
+
+<script>
+    
+    function dividir(){
+
+        var N1 = Number(Num1.value);
+        var N2 = Number(Num2.value);
+        var ResultadoDivisao = N1/N2;
+
+
+        Resultado.innerHTML = `${N1} por ${N2} é ${ResultadoDivisao.toFixed(2)}` //O toFixed usa o arredondamento universal (arredonda >=5) o número dentro dos parenteses é a quantidade de casas decimais
+
+        span.innerHTML = `${N1} por ${N2} completo é ${ResultadoDivisao}`
+    }
+</script>

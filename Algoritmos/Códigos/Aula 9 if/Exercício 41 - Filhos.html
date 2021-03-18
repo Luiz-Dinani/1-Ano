@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 41 - Filhos</title>
+</head>
+<body>
+    Quantos filhos você tem? <input id="qtd_filhos"><br>
+    <button onclick="verificar()">Verificar Situação</button><br>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        filhos = qtd_filhos.value
+        if (filhos==0) {
+            resultado.innerHTML = `Sem Descendentes`
+        }
+
+        if (filhos==1){
+            resultado.innerHTML = `Filho único`
+        }
+
+        if (filhos>=2){
+            resultado.innerHTML = `Crescei e multiplicai-vos!`
+        }
+    }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 24 - Formulários (input, value e placeholder)</title>
+</head>
+<body>
+    Nome:   <input id="inp_Nome" type="Nome" placeholder="Digite o seu nome"><br>
+    Bairro: <input id="inp_Bairro" type="Bairro" placeholder="Bairro em que mora"><br>
+    Idade:   <input id="inp_Idade" type="Idade" placeholder="Sua idade"><br>
+    <button id="bot_relatório" onclick="relatorio()">Relatório</button>
+    <button id="bot_relatórioBonito" onclick="relatorio_Bonito()">Relatório Bonito</button>
+</body>
+</html>
+
+
+<script>
+
+    /* 
+    Input sereve para criar uma caixa de diálogo na página
+   
+    Placeholder serve para colocar um texto de fundo na caixa (Ele some quando escreve por cima) 
+   
+    Value serve para colocar um texto na caixa de diálogo (É a resposta ao que se pede. Sobrepõe o placeholder)
+    */
+
+    function relatorio(){
+        alert(`Seu nome é: ${inp_Nome.value}`);
+        alert(`Você mora no bairro: ${inp_Bairro.value}`);
+        alert(`Sua idade atual é: ${inp_Idade.value}`);
+    }
+
+    function relatorio_Bonito(){
+        alert(`Seu nome é: ${inp_Nome.value}, você mora no bairro ${inp_Bairro.value} e sua idade é ${inp_Idade.value}`);
+        
+    }
+</script>

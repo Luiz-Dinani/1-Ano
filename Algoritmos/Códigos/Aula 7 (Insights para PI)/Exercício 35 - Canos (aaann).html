@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 35 - Canos (aaann)</title>
+</head>
+<body>
+    <input id="metros_de_cano" placeholder="Quantos metros de cano você quer desentupir">
+    <button onclick="calcular()">Calcular</button>
+    <div id="Resultado"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var metros = metros_de_cano.value;
+        var Nicanor = Number((metros*10)+50);
+        var Rotirute = Number((metros*9.80)+600);
+        var Diferença = Number(Rotirute-Nicanor);
+
+        Resultado.innerHTML = `O Nicanor cobra R$ ${Nicanor}<br>
+                               A Rotirute cobra R$ ${Rotirute}<br>
+                               A diferença entre a Rotirute e o Nicanor é R$ ${Diferença}`
+    };
+</script>

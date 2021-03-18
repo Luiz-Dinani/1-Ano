@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 39 - Maçãs</title>
+</head>
+<body>
+    Digite a quantidade de maçãs: <input id="qtd_macas"><br>
+
+    <button onclick="finalizar()">Finalizar compra</button>
+</body>
+</html>
+
+<script>
+    function finalizar(){
+        var macas = Number(qtd_macas.value);
+        var valUnidade = 0.75;
+        
+        if (macas >= 10){       //Estrutura: if (condição) {o que acontece;}
+            valUnidade = 0.68;
+        }
+    
+        var totalCompra = valUnidade*macas; //Essa var tem que vir dps do if, pois uma de suas var é mudada por ele e se vc colocar ela antes e o if for atendido, o valor da valUnidade de fato muda, mas isso não implica que o valor de totalCompra tbm mude
+
+        alert(`Total a pagar: ${totalCompra}`);
+    }
+</script>

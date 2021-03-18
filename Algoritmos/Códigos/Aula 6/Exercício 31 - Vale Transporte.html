@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 31 - Vale Transporte</title>
+</head>
+<body>
+    <input id="preço_da_passagem_de_onibus" placeholder="Quanto custa a passagem do ônibus?"><br>
+    <input id="viagens_por_mes" placeholder="Quantas viagens você faz por mês?"><br>
+    <input id="Dist_Trab_Casa" placeholder="Qual a distância, em km, da sua casa até o seu trabalho?"><br>
+    <button onclick="custo()">Calcular VT</button><br>
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function custo(){
+
+        var passagem = Number(preço_da_passagem_de_onibus.value);
+        var viagens = Number(viagens_por_mes.value);
+        var viagensUber = Number(viagens*0.1);
+        var viagensOnibus = Number(viagens*0.9);
+        var dist = Number(Dist_Trab_Casa.value);
+        var custoDist = Number(dist*0.75);
+        var custoOnibus = Number(passagem*viagensOnibus);
+        var custoUber = Number(custoDist*viagensUber);
+        div_resultado.innerHTML += `Você vai gastar: R$ ${custoOnibus} de ônibus e R$ ${custoUber} de Uber, totalizando R$ ${custoOnibus+custoUber}<br>`;
+    }
+</script>

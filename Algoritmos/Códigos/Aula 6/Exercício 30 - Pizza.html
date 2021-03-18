@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 30 - Pizza</title>
+</head>
+<body>
+    <input id="Sabor" placeholder="Qual sabor de pizza você quer?"><br>
+    <input id="Numero_de_Amigos" placeholder="Quantas pessoas vão comer?"><br>
+    <input id="PreçoPizza" placeholder="Insira o valor da(s) pizza(s)"><br>
+    <button onclick="pizza()">Ver valor por amigo</button><br>
+    <div id="div_rachada"></div>
+</body>
+</html>
+
+<script>
+    function pizza(){
+        var A = Number(Numero_de_Amigos.value);
+        var P = Number(PreçoPizza.value);
+        var Total = Number(P+(P*0.1)); //Inclui os 10% do entregador
+        div_rachada.innerHTML = `O valor fica ${Total/A} para cada um<br>
+        *OBS: O preço inclui os 10% do entregador`;
+    }
+</script>
