@@ -1,0 +1,49 @@
+/* O * muda as características de todos os elementos da página */
+
+*{ 
+    margin: 0;
+    padding: 0;
+}
+
+/* GERAL */
+.container{
+    background-color: blue;
+    width: 80%;
+    margin: auto; /*Centraliza o Container horizontalmente*/
+}
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/*Início Estilo do Header */
+.header{
+    background-color: black;
+    width: 100%;
+    height: 80px;
+    border-bottom: solid orangered 5px;
+}
+
+.header h1{
+    float: left;
+    color: white;
+}
+
+.header h1, .header ul{
+    margin-top: 20px;
+}
+.header ul{
+    /*Tira as bolinhas da lista*/
+    list-style: none;
+    float: right;
+}
+
+.header li{
+    display: inline-block; /*Coloca os itens da lista lado-a-lado, dentro de um bloco*/
+}
+
+.header ul li a{
+    /*Tira o estilo de link (sublinhado)*/
+    text-decoration: none; 
+    color: white;
+}
