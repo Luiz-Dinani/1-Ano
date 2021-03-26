@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes DC</title>
+</head>
+<body>
+    <!-- Crie um programa em HTML/JS o qual:
+
+a) Tenha uma combobox com os melhores filmes da DC;
+b) Tenha uma outra lista com os melhores filmes da Marvel;
+c) Ao selecionar um filme da DC e outro da Marvel e clicar em "Ver notas":
+    c.1) Mostre, em um alert, as notas daqueles filmes no IMDB (pode inventar, não precisa ser a nota real);
+    c.2) Mostre também as opções selecionadas, ex:
+        "O filme X tem uma nota de Y e o filme Z tem uma nota de K no IMDB";
+    c.3) Mostre, em outro alert, quantas vezes o filme A é superior ao filme B;
+d) Mostre, na página, uma imagem dos dois filmes selecionados;
+-->
+<style>
+    .global{
+        text-align: center;
+        justify-content: center;
+    }
+    img{
+        width: 700px;
+        height: 600px;
+    }
+    select{
+        width: 200px;
+        text-align: center;
+        justify-content: center;
+    }
+    .fotos{
+        float: left;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+</style>
+<div class="global">
+    <select id="filmesDC">
+        <option value="none"></option>
+        <option value="caraRicoMaisChatoQoHomemDeFerro">Batman</option>
+        <option value="filmeBemPodrinho">Esquadrao Suicida</option>
+        <option value="vamoBotarTodosOsSuperPoderesNumCaraSoKKKKK">Super Man</option>
+    </select>
+
+    <select id="filmesMarvel">
+        <option value="none"></option>
+        <option value="miranha">Espetacular Homem Aranha</option>
+        <option value="caraRicoMaisLegalQoBatman">Homem de ferro</option>
+        <option value="martelo">Thor</option>
+
+    </select>
+    
+    <button onclick="analisar()">Comparar filmes</button><br>
+    <div class="fotos" id="fotoDC"></div>
+    <div class="fotos" id="fotoMarvel"></div>
+</div>
+</body>
+</html>
+
+<script>
+
+    function analisar(){
+        
+        var notaMarvel = 0
+        var notaDC = 0
+
+        if(filmesDC.value == "caraRicoMaisChatoQoHomemDeFerro"){
+            notaDC = 8.5
+            fotoDC.innerHTML = '<img src="https://i.pinimg.com/originals/0b/3c/ae/0b3caedf59ab4514eb82d114ae7cf625.jpg">'
+        }
+
+        if(filmesDC.value == "filmeBemPodrinho"){
+            notaDC = 2
+            fotoDC.innerHTML = '<img src="https://artfiles.alphacoders.com/898/thumb-1920-89874.jpg" style="hight:800px">'
+        }
+
+        if(filmesDC.value == "vamoBotarTodosOsSuperPoderesNumCaraSoKKKKK"){
+            notaDC = 8
+            fotoDC.innerHTML = '<img src="https://i.pinimg.com/474x/fd/30/b2/fd30b29ce803d27a31f25f47aaf676eb.jpg">'
+        }
+
+        if(filmesMarvel.value=="miranha"){
+            notaMarvel = 9
+            fotoMarvel.innerHTML = '<img src="https://i.pinimg.com/originals/18/a0/c2/18a0c2dd540fa234641666d0f1af17ee.jpg">'
+        }
+    
+        if(filmesMarvel.value=="caraRicoMaisLegalQoBatman"){
+            notaMarvel = 10
+            fotoMarvel.innerHTML = '<img src="https://cdna.artstation.com/p/assets/images/images/029/130/892/large/fabio-martins-img-0006.jpg?1596551969">'
+        }
+
+        if(filmesMarvel.value=="martelo"){
+            notaMarvel = 8
+            fotoMarvel.innerHTML = '<img src="https://i.pinimg.com/originals/f8/80/7d/f8807d268ba8d47e036eb8043f62ad17.jpg">'
+        }
+
+        var pctNotaDCmelhorqueMarvel = (notaDC/notaMarvel*100)-100
+        var pctNotaMarvelmelhorqueDC = (notaMarvel/notaDC*100)-100
+
+        alert(`Notas: ${filmesDC.value}: ${notaDC} e ${filmesMarvel.value}: ${notaMarvel}`)
+
+        alert(`O filme ${filmesDC.value} tem uma nota de ${notaDC} e o filme ${filmesMarvel.value} tem uma nota de ${notaMarvel} no IMDB`)
+
+        if (notaDC>notaMarvel){
+            alert(`O ${filmesDC.value} é ${pctNotaDCmelhorqueMarvel} melhor que ${filmesMarvel.value}`)
+        } else{
+            alert(`O ${filmesMarvel.value} é ${pctNotaMarvelmelhorqueDC} melhor que ${filmesDC.value}`)
+        }
+    }
+</script>
