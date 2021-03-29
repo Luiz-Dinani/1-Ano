@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 76 - Nutricionista e Calorias</title>
+</head>
+<style>
+    .global{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+    button{
+        margin-top: 5px;
+        width: 300px;
+    }
+</style>
+
+<body>
+    <div class="global">
+        <span>Porções de pão francês: <u id="paesComidos">0</u></span>
+        <span>Porções de carne boniva: <u id="carnesComidas">0</u></span>
+        <span>Porções de carne de soja: <u id="carnesSojaComidas">0</u></span>
+        <span>Porções de arroz com feijão: <u id="pfsComidos">0</u></span>
+        <span><strong>Total de calorias:</strong> <u id="totCal">0</u></span>
+        
+        <div class="botoes">
+            <button onclick="pao(),updateCal()">Comer Pão Frances</button><br>
+            <button onclick="bovina(), updateCal()">Comer Porção de Carne Bovina</button><br>
+            <button onclick="soja(), updateCal()">Comer Porção de Carne de Soja</button><br>
+            <button onclick="arrozEfeijao(), updateCal()">Comer Porção de Arroz com Feijão</button><br>
+            <button onclick="reset(), updateCal()">Recomeçar</button><br>         
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var totalCalorias = 0
+    var paes = 0
+    var bovinos = 0
+    var carnesSoja = 0
+    var pfsSemMistura = 0
+
+    function pao(){
+        ++paes
+        totalCalorias += 50
+        paesComidos.innerHTML = `${paes}`
+    }
+
+    function bovina(){
+        ++bovinos
+        totalCalorias += 100
+        carnesComidas.innerHTML = `${bovinos}`
+    }
+
+    function soja(){
+        ++carnesSoja
+        totalCalorias += 30
+        carnesSojaComidas.innerHTML = `${carnesSoja}`
+    }
+
+    function arrozEfeijao(){
+        ++pfsSemMistura
+        totalCalorias += 120
+        pfsComidos.innerHTML = `${pfsSemMistura}`
+    }
+
+    function reset(){
+        paes = 0
+        bovinos = 0
+        carnesSoja = 0
+        pfsSemMistura = 0
+        totalCalorias = 0
+        paesComidos.innerHTML = `${paes}`
+        carnesComidas.innerHTML = `${bovinos}`
+        carnesSojaComidas.innerHTML = `${carnesSoja}`
+        pfsComidos.innerHTML = `${pfsSemMistura}`
+
+
+    }
+    
+    function updateCal(){
+        totCal.innerHTML = `${totalCalorias}`
+    }
+
+    
+
+
+</script>

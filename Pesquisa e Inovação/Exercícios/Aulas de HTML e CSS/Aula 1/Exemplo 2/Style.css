@@ -40,10 +40,26 @@ body{
 
 .header li{
     display: inline-block; /*Coloca os itens da lista lado-a-lado, dentro de um bloco*/
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: #444444;
 }
 
 .header ul li a{
     /*Tira o estilo de link (sublinhado)*/
     text-decoration: none; 
     color: white;
+}
+.header .text-orange{
+    color: orangered;
+    font-weight: bold;
+}
+
+.banner{
+    width: 100%;
+    height: 400px;
+    background-color: aquamarine;
+    text-align: center;
 }
