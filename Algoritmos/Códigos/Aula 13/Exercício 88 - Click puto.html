@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 88 - Click puto</title>
+</head>
+<body>
+    <div id="clicados" style="float: left; margin-right: 5px;">Você já clicou <strong>0</strong> vezes</div>
+    <button onclick="cliquei()">Clica neu</button>
+    <div id="frase"></div>
+</body>
+</html>
+
+<script>
+    var cliques = 0
+    function cliquei(){
+        
+        if (++cliques==1){
+            clicados.innerHTML = `Você já clicou <strong>${cliques}</strong> vez`
+        } else{
+            clicados.innerHTML = `Você já clicou <strong>${cliques}</strong> vezes`}
+
+        if(cliques<5){
+            frase.innerHTML = "Dedo fraquinho, hein"
+        }else if(cliques<=10){
+            frase.innerHTML = "Dedo bom, mano"
+        }else if(cliques<=15){
+            frase.innerHTML = "Gosta de clicar, hein!"
+        }else{
+            frase.innerHTML = "Eita dedo nervoso!" //Nervouser kkkkk
+        }
+    }
+</script>
+</body>
+</html>

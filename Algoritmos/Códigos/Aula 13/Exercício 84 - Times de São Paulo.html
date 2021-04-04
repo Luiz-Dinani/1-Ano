@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 84 - Times de São Paulo</title>
+</head>
+<style>
+    .global{
+        text-align: center;   
+    }
+</style>
+<body>
+    <div class="global">
+        <select id="times">
+            <option value="cor">Coringão</option>
+            <option value="pal">Verdão</option>
+            <option value="san">Peixe</option>
+            <option value="sao">Bambi</option>
+        </select><br>
+        <button onclick="falar()">Fale sobre esse time</button>
+        <div id="sobre"></div>
+    </div>
+</body>
+</html>
+<script>
+    function falar(){
+        var time = times.value
+        if(time=="cor"){
+            sobre.innerHTML=`<span style="background-color: black; color: whitesmoke;">Salve o Corinthians!</span>`
+        }else if (time=="pal"){
+            sobre.innerHTML=`<span style="background-color: green; color: whitesmoke;">Salve o Alviverde imponente</span>`
+        }else if(time=="san"){
+            sobre.innerHTML=`<span>Agora quem dá a bola é o Santos</span>`
+        }else{
+            sobre.innerHTML=`<span style="background-color: black; color: red;">Salve o Tricolor paulista</span>`
+        }
+    }
+</script>

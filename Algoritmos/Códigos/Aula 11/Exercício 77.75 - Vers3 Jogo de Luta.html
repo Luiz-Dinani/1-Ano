@@ -55,20 +55,23 @@
     var compLifeBar2 = 100
     var socoNoMamaco = 0
     var socoNoLacoste = 0
-
+    var margem = 0 //Pra fazer a vida do kong diminuir pra direita
+    
     function iniciar(){
-        compLifeBar1 = 10
-        compLifeBar2 = 10
+        compLifeBar1 = 100
+        compLifeBar2 = 100
         socoNoMamaco = 0
         socoNoLacoste = 0
+        margem = 0
+        
 
         luta.style.display = 'initial'
         vitoria.innerHTML = " "
         fotos.innerHTML = 
-            `<img src="https://wallpaper29.files.wordpress.com/2016/09/godzilla-2016-wallpaper-1600x900.jpg"            style="width: 450px; margin-right: 5px" 
+            `<img src="https://wallpaper29.files.wordpress.com/2016/09/godzilla-2016-wallpaper-1600x900.jpg" style="width: 450px; margin-right: 5px" 
             onclick="hitP1(), vencedor()">    
             
-            <img src="https://poltronanerd.com.br/wp-content/uploads/2017/03/kong-skull-island-main.jpg"jmkstyle="width:450px;" 
+            <img src="https://poltronanerd.com.br/wp-content/uploads/2017/03/kong-skull-island-main.jpg" style="width:450px;" 
             onclick="hitP2(), vencedor()">`
         
             life1.innerHTML = `<div id="lifeBar1" style="width: 450px; height: 50px; background-color: blue;"></div>`
@@ -96,8 +99,10 @@
     
     function hitP2(){
         compLifeBar2 -= 5
+        margem += 5
         ++socoNoMamaco
         lifeBar2.style.width = `${compLifeBar2}%`
+        lifeBar2.style.marginLeft = `${margem}%`
         totHitP2.innerHTML = `${socoNoMamaco}`
     }
 

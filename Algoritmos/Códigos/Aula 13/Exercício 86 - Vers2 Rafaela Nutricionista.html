@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 86 - Vers2 Rafaela Nutricionista</title>
+</head>
+<style>
+    input{
+        width: 300px;
+    }
+</style>
+<body>
+    <input id="qtdPaes" placeholder="Quantos pães franceses você tem comido por dia?"><br>
+    <input id="qtdBolacha" placeholder="Quantos pcts de bolacha recheada você tem comido por dia?"><br>
+    <input id="qtdAchocolatado" placeholder="Quantos copos de achocolatado você tem bebido por dia?"><br>
+    <button onclick="verificar()">Verificar Calorias</button>
+    <div id="verificacao"></div>
+</body>
+</html>
+<script>
+    function verificar(){
+        var paes = Number(qtdPaes.value)
+        var bolachas = Number(qtdBolacha.value)
+        var achocolatados = Number(qtdAchocolatado.value)
+        var calPaes = paes*50
+        var calBolachas = bolachas*80
+        var calAchocolatados = achocolatados*70
+        var totalCalorias = calPaes+calBolachas+calAchocolatados
+
+        if(totalCalorias<200){
+            verificacao.innerHTML=`Parabéns, vai sair em forma da quarentena!<br>
+            <img src="https://drnelsonvalente.com.br/wp-content/uploads/2017/10/Alimenta%C3%A7%C3%A3o-Saudavel-1.jpg" style="width:500px">`
+        }
+        else if(totalCalorias>400){
+            verificacao.innerHTML=`Bom, acho que muitos não vão te reconhecer após a quarentena<br>
+            <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/E06F/production/_98855475_comida.jpg">`
+        }else{
+            verificacao.innerHTML=`Cuidado, vai ficar mais "fofinho(a)" após quarentena!<br>
+            <img src="https://pubimg.band.uol.com.br/files/5fa0caa41a7ff53c0382.jpg">`
+        }
+    }
+</script>

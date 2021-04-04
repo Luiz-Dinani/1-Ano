@@ -8,7 +8,7 @@
 /* GERAL */
 body{
     font-family: Helvetica, Arial, sans-serif;
-    background-color: #444444;
+    background-color: darksalmon;
 }
 
 .container{
@@ -25,7 +25,6 @@ body{
     border-radius: 5px;
     margin: auto;
 }
-
 
 
 /*Início Estilo do Header */
@@ -91,8 +90,8 @@ color: orangered;
     padding-top: 15px;
     color: rgb(112, 106, 106);
 }
-
 /* Fim banner */
+
 /* Inicio News */
 .news{
     width: 100%;
@@ -103,6 +102,7 @@ color: orangered;
     margin-top: 15px;
 }
 /* Fim News */
+
 /* Inicio Missao Valores Visao */
 .box{
     text-align: center;
@@ -121,3 +121,70 @@ color: orangered;
 .box-item h3, .box-item p{
    margin-top: 15px; 
 }
+/*Fim Missão Valores Visao*/
+
+/* INICIO DA PG SOBRE */
+
+.bannerSobre{
+        width: 100%;
+        height: 400px;
+        background-image: url(https://images.pexels.com/photos/89778/strawberries-frisch-ripe-sweet-89778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+        background-size: cover;
+        text-align: center;
+}
+
+.bannerSobre h1{
+    padding-top: 150px;
+    font-size: 35px;
+    font-weight: normal;
+    text-align: center;
+    justify-content: center;
+}
+
+.historia{
+    margin-top: 15px;
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.ppTime h2 , h3{
+    color: black;
+}
+.pp{
+    border-radius: 50px;
+}
+/*Fim Body*/
+
+/*Início footer*/
+
+.footer{
+    background-color: black;
+    padding-top: 15px;
+}
+
+.footer h1{
+    color: orangered;
+}
+
+.footer ul li{
+    /*Tira o estilo de link (sublinhado)*/
+    text-decoration: none; 
+    color: white;
+    margin: 5px;
+    list-style: none;
+}
+
+.contato{
+    float: left;
+    background-color: black;
+}
+.mais{
+    float: right;
+    background-color: black;
+}
+.footer a{
+    color: orange;
+}
+
