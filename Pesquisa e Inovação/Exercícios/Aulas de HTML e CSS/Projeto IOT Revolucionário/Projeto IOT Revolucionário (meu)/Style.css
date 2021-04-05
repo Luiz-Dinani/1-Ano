@@ -162,6 +162,7 @@ color: orangered;
 .footer{
     background-color: black;
     padding-top: 15px;
+    overflow: hidden;
 }
 
 .footer h1{
