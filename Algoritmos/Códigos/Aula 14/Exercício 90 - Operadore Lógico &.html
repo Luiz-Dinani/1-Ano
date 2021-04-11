@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 90 - Operadore Lógico &</title>
+</head>
+<body>
+    <input id="inpNota" placeholder="Informe a nota">
+    <br>
+    <input id="inpFrequencia" placeholder="Informe a Frequência">
+    <br>
+    <button onclick="verificar()">Verificar Situação</button>
+</body>
+</html>
+
+<script>
+    /*
+        SE o aluno tiver nota >= 6
+            SE o aluno tiver frequência >=70 
+                Mostrar:"Parabéns, aprovado!"
+        Se o aluno não atender aos requisitos:
+            Mostrar: "REPROVADO *gif do seu madrugado*"
+    */
+
+    
+    function verificar(){
+        var nota = Number(inpNota.value)
+        var freq = Number(inpFrequencia.value)
+/*
+         JEITO ANTIGO
+        if(nota>=6){
+            if(freq>=70){
+                alert("Parabéns, aprovado!")
+            }else{
+                alert("REPROVADO!")
+            }
+        }
+    }
+    */
+
+   /*Usando o operador lógico E*/
+        if(nota>=6 && freq>=70){
+                alert("Parabéns, aprovado!")
+            }else{
+                alert("REPROVADO!")
+            }
+        }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercío 97 - Vegano</title>
+</head>
+<body>
+    <select id="breakfest">
+        <option value="ovos">Ovos</option>
+        <option value="leiteArroz">Leite de Arroz</option>
+        <option value="bacon">bacon</option>
+    </select>
+
+    
+    <select id="almoco">
+        <option value="bife">Bife</option>
+        <option value="hambSoja">Hambúrguer de Soja</option>
+        <option value="Frango">Frango Grelhado</option>
+    </select>
+
+    <select id="janta">
+        <option value="picaSoja">Picanha de Soja</option>
+        <option value="cupim">Cupim</option>
+        <option value="coracao">Coracao de Galinha</option>
+    </select>
+    <button onclick="verificar()">Sou Vegano?</button>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+    var breakf = breakfest.value
+    var alm = almoco.value
+    var jan = janta.value
+    if(breakf == "leiteArroz" && alm == "hambSoja" && jan == "picaSoja"){
+        resultado.innerHTML= "Você é vegano"
+    }else {
+        resultado.innerHTML= "Você é não é vegano"
+    }
+}
+</script>

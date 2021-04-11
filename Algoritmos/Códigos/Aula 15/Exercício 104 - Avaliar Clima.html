@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 105 - Avaliar Clima</title>
+</head>
+<body>
+    <input id="temperatura" placeholder="Qual a temperatura?"><br>
+    <input id="umidadeAr" placeholder="Qual a umidade do ar?"><br>
+    <button onclick="avaliar()">Avaliar Clima</button><br>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function avaliar(){
+        var temp = temperatura.value
+        var umi = umidadeAr.value
+        if(umi<0 || umi>100){
+            alert("Valor de umidade inválido (deve estar entre 0 e 100)")
+            resultado.innerHTML = " "
+        }else if(temp>=20 && temp<=25 && umi<60 && umi>=50){
+            resultado.innerHTML = "Clima agradável"
+        }else{
+            resultado.innerHTML = "Clima desconfortável"
+        }
+    }
+</script>

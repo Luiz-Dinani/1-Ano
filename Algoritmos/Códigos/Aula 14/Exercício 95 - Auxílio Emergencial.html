@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 95 - Auxílio Emergencial</title>
+</head>
+
+<body>
+    <input id="rendaUser" placeholder="Insira sua renda"><br>
+    <input id="rendaFamiliaUser" placeholder="Insira a renda total da sua família"><br>
+    <button onclick="verificar()">Verificar Ajuda</button>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var rendaU = Number(rendaUser.value)
+        var rendaFam = Number(rendaFamiliaUser.value)
+
+        if(rendaU<=1050 && rendaFam<=2100){
+            resultado.innerHTML = "Você terá direito!"
+        }else{
+            resultado.innerHTML = "Você NÃO terá direito!"
+        }
+    }
+</script>

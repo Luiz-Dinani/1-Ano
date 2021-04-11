@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 107 - Desempenho Aluno</title>
+</head>
+<body>
+    <input id="notaAluno" placeholder="Qual a nota do aluno?"><br>
+    <input id="frequenciaAluno" placeholder="Qual a frequência do aluno?"><br>
+    <button onclick="analisar()">Analisar aluno</button><br>
+    <span id="spanNota"></span><span id="spanFreq"></span>
+</body>
+</html>
+<script>
+    function analisar(){
+        var nota = Number(notaAluno.value)
+        var freq = Number(frequenciaAluno.value)
+        var ifNotaValida = 1
+        var ifNotaNaMedia = 0
+
+        if(nota<0 || nota>10){
+            alert("Onde já se viu nota  <0 ou >10?!")
+            spanNota.innerHTML = " "
+            spanFreq.innerHTML = " "
+            ifNotaValida = 0
+        }else if(nota>=0 && nota<6){
+                spanNota.innerHTML = "<b>Aluno ficou abaixo da média</b>"
+        }else if(nota>=6 && nota<8){
+                spanNota.innerHTML = "<b>Aluno ficou na média</b>"
+                var ifNotaNaMedia = 1
+        }else{
+            spanNota.innerHTML = "<b>Aluno ficou acima da média</b>"
+        }
+        
+        if(freq<0 || freq>100){
+            alert("Onde já se viu frequência  <0 ou >100?!")
+            spanNota.innerHTML = " "
+            spanFreq.innerHTML = " "
+        }
+
+        if(ifNotaValida==1){
+            if(freq>=75){
+                spanFreq.innerHTML = "<b>. O que é uma pena, pois a sua frequência é suficiente para aprovação :/</b>"
+                if(ifNotaNaMedia==1){
+                spanFreq.innerHTML = "<b> e sua frequência é suficiente para aprovação, parabéns</b>"
+                }else if(nota>=8){ //Só ganha :V quem é acima da média
+                    spanFreq.innerHTML = "<b> e sua frequência é suficiente para aprovação, parabéns :V</b>"
+                }else{ //Pra quando a nota for <6
+                    spanFreq.innerHTML = "<b>, mas você tem a presença mínima, quem sabe o conselho não te ajuda?</b>"
+                }
+            }else if(nota>6){
+                spanFreq.innerHTML = "<b>, mas sua frequência é insuficiente para aprovação :c</b>"
+            }else{
+                spanFreq.innerHTML = "<b>, além do mais, sua frequência é insuficiente para aprovação, otário kkkkk</b>"
+            }
+        }
+    }
+</script>

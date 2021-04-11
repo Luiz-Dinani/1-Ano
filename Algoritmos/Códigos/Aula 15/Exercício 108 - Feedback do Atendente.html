@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 108 - Feedback do Atendente</title>
+</head>
+
+<body>
+    <input id="notaUser" placeholder="Qual sua nota para o(a) atendente?" style="width: 215px;"><br>
+
+    <button onclick="avaliar()">Avaliar</button>
+    <img id="avaliacao" src=>
+</body>
+</html>
+
+<script>
+    function avaliar(){
+        var nota = notaUser.value
+
+        if(nota<0 || nota>5){
+            alert("Nota inválida. Digite de 0 a 5")
+        }
+
+        if(nota<0.5){
+            avaliacao.src = "./img Estrelas/_0000_0-Estrelas.png"
+        }else if(nota<1){
+            avaliacao.src = "./img Estrelas/_0001_0,5-Estrelas.png"
+        }else if(nota<1.5){
+            avaliacao.src = "./img Estrelas/_0002_1-Estrela.png"
+        }else if(nota<2){
+            avaliacao.src = "./img Estrelas/_0003_1,5-Estrela.png"
+        }else if(nota<2.5){
+            avaliacao.src = "./img Estrelas/_0004_2-Estrelas.png"
+        }else if(nota<3){
+            avaliacao.src = "./img Estrelas/_0005_2,5-Estrelas.png"
+        }else if(nota<3.5){
+            avaliacao.src = "./img Estrelas/_0006_3-Estrelas.png"
+        }else if(nota<4){
+            avaliacao.src = "./img Estrelas/_0007_3,5-Estrelas.png"
+        }else if(nota<4.5){
+            avaliacao.src = "./img Estrelas/_0008_4-Estrelas.png"
+        }else if(nota<5){
+            avaliacao.src = "./img Estrelas/_0009_4,5-Estrelas.png"
+        }else{
+            avaliacao.src = "./img Estrelas/_0010_5-Estrelas.png"
+        }
+    }
+</script>

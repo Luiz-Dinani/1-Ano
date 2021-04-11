@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 91 - Almoço</title>
+</head>
+<style>
+    .container{
+        text-align: center;
+        margin: auto;
+    }    
+    input{
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="bebes">
+            <h1>O que você deseja beber?</h1>
+            <select id="bebidaUser">
+                 <option value="0">Nenhuma</option>
+                 <option value="1">Água</option>
+                 <option value="5">Refrigerante</option>
+                 <option value="2">Cerveja</option>
+            </select>
+        </div>
+
+        <div class="comes">
+            <h1>O que você deseja comer?</h1>
+            <select id="comidaUser">
+                <option value="2.5">Salada</option>
+                <option value="10">Feijoada</option>
+                <option value="15">Bife a Cavalo</option>
+                <option value="7.50">Peixe Frito</option>
+            </select>
+        </div><br>
+        <input id="nomeUser" placeholder="Insira seu Nome"><br>
+        <button onclick="calcular()">Calcular Total</button>
+        <div id="resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var bebida = Number(bebidaUser.value)
+        var comida = Number(comidaUser.value)
+        var nome = nomeUser.value
+        var conta = bebida+comida
+
+        resultado.innerHTML = `Olá ${nome}, seu total a pagar é de R$${conta}`
+    }
+</script>
