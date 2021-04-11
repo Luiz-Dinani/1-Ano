@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 110 - Festa</title>
+</head>
+<body>
+    <select id="ConvidadosA">
+        <option value="2">Convidados A</option>
+        <option value="0">Carnes e Derivados de Animais</option>
+        <option value="1">Apenas opções veganas</option>
+    </select>
+
+    <select id="ConvidadosB">
+        <option value="2">Convidados B</option>
+        <option value="0">Carnes e Derivados de Animais</option>
+        <option value="1">Apenas opções veganas</option>
+    </select><br>
+    <button onclick="verificar()">Verificar</button>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var convA = Number(ConvidadosA.value)
+        var convB = Number(ConvidadosB.value)
+
+        if(convA==1 && convB==1){
+            alert("Para uma taxa de sucesso de 100% dessa festa, é melhor ir de veggie ;)")
+        }else if(convA==0 && convB==0){
+            alert("Tá tudo liberado, pode servir o que quiser :D")
+        }else if(convA==2 || convB==2){
+            alert("Você tem que escolher uma opção para cada grupo de convidados")
+        }else{
+            alert("A festa tem uma probabilidade de fracasso de 83%")
+        }
+    }
+</script>
