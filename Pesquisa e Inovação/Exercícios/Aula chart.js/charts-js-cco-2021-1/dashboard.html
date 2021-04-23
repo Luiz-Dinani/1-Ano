@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Da acesso a lib -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="container">
+      <h1><span class="highlight">Projeto</span> IoT Revolucionário</h1>
+    </div>
+  </div>
+
+  <div class="dash">
+    <!-- Farol de temperatura -->
+    <div class="graph">
+      <div class="box red">
+        <h1>00°</h1>
+        <h3>STATUS</h3>
+        <p>Descrição do status</p>
+      </div>
+      <div class="box yellow">
+        <h1>00°</h1>
+        <h3>STATUS</h3>
+        <p>Descrição do status</p>
+      </div>
+      <div class="box green">
+        <h1>00°</h1>
+        <h3>STATUS</h3>
+        <p>Descrição do status</p>
+      </div>
+    </div>
+
+    <!-- Gráfico de Linhas -->
+    <div class="graph">
+      <canvas id="temp24h"></canvas> <!--É aqui que fica o gráfico-->
+    </div>
+
+    <!-- Gráfico de Barras -->
+    <div class="graph">
+      <canvas id="myChartBar"></canvas>
+    </div>
+
+    <!-- Grafico Pizza -->
+    <div class="graph">
+      <canvas id="myChartPizza"></canvas>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- Inserir JS do Gráfico -->
+<script>
+  //GRÁFICO DE LINHAS (TEMPERATURA DO AQUÁRIO)
+  const labels24h = [ //A que o dado se refere, é o nome que aparece no eixo X
+    '07:00',
+    '10:00',
+    '13:00',
+    '16:00',
+    '19:00',
+    '22:00',
+  ];
+  const data = {
+    labels: labels24h,
+    datasets: [{
+      label: 'Temperatura do aquário',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [21, 23, 27, 19, 20, 19], //São os valores que serão colocados em cada um dos meses
+    }]
+  };
+
+  //Configurações do gráfico
+  const config = {
+    type: 'line',
+    data, //São os valores que estão na constante data, nas linhas 73-81
+    options: { maintainAspectRatio: false} //O options altera o comportamento dos gráficos, essa option faz com que o gráfico se adapte à div que ele está dentro
+  };
+
+  var temp24h = new Chart(
+    document.getElementById('temp24h'),
+    config
+  )
+
+//GRÁFICO DE BARRAS (QUANTIDADE POR ESPÉCIE)
+  const labelsBar = [ //Constantes não podem ter o mesmo nome, é tipo uma var
+    'Colisa',
+    'Tetra',
+    'Coridora',
+    'Molinésia',
+    'Arco-íris',
+    'Betta',
+  ];
+  const dataBar = {
+    labels: labelsBar,
+    datasets: [{
+      label: 'Quantidade por espécie',
+      backgroundColor: ["#2196f3", "#3f51b5", "#9c27b0"], //Altera a cor de cada barra, como eu só coloquei 3 cores ele vai repetir essa sequeência até terminarem as barras
+      borderColor: 'black',
+      data: [10, 70, 50, 5, 30, 65], //São os valores que serão colocados em cada um dos meses
+    }]
+  };
+  const configBar = {
+    type: 'bar',
+    data: dataBar, //O data é uma propriedade obrigatória, na linha 87, como ia chamar a config data padrão, não precisava especificar qual era, mas como a gente vai usar outro conjunto de dados (data) tem que especeficar através dos : nomeData
+    options: { maintainAspectRatio: false}
+  };
+  
+  var myChartBar = new Chart(
+    document.getElementById('myChartBar'),
+    configBar
+  )
+
+  //GRÁFICO DE PIZZA (QUANTIDADE POR IDADE)
+  const labelsPizza = [
+    'Jovem',
+    'Adulto',
+    'Idoso',
+  ];
+  const dataPizza = {
+    labels: labelsPizza,
+    datasets: [{
+      label: 'Quantidade por idade',
+      backgroundColor: ["#2196f3", "#3f51b5", "#9c27b0"],
+      borderColor: ["#2196f3", "#3f51b5", "#9c27b0"],
+      data: [153, 60, 17], //São os valores que serão colocados em cada um dos meses
+    }]
+  };
+  const configPizza = {
+    type: 'pie', //Por algum motivo o criador da biblioteca chamou o gráfico de Pizza de "Pie"
+    data: dataPizza, //O data é uma propriedade obrigatória, na linha 87, como ia chamar a config data padrão, não precisava especificar qual era, mas como a gente vai usar outro conjunto de dados (data) tem que especeficar através dos : nomeData
+    options: { maintainAspectRatio: false}
+  };
+  
+  var myChartPizza = new Chart(
+    document.getElementById('myChartPizza'),
+    configPizza
+  )
+</script>
