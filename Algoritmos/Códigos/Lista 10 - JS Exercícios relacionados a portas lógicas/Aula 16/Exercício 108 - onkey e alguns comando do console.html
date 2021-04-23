@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 108 - Operador Lógico OU</title>
+</head>
+<body>
+    <input id="inFrase" placeholder="Insira uma frase" onkeyup="transformacoes()"><br>
+    <span id="primLetra"></span><br>
+    <span id="lastLetra"></span><br>
+    Email válido?: <span id="validEmail"></span><br>
+    Começa com a?: <span id="comecaA"></span><br>
+    Termina com .com.br?: <span id="terminaCerto"></span><br>
+</body>
+</html>
+
+<script>
+    var frase = inFrase.value;
+    
+    function transformacoes(){
+        frase = inFrase.value;
+        console.log(frase)    //Mostra a frase no console
+        primLetra.innerHTML = frase[0] //Mostra o primeiro caracter da frase (A contagem começa do 0)
+        lastLetra.innerHTML = frase[frase.length-1]  //Length mostra o total de caracteres da frase, mas como o primeiro caracter é 0 o último caracter vai ser o toltal - 1
+        
+        if(frase.indexOf("@")>-1 && frase.indexOf(".")>-1){ //verifica se o email do cara tem "@" e "."
+            validEmail.innerHTML = "Email válido"
+        }else{
+            validEmail.innerHTML = "Email inválido"
+        
+        }
+        
+        var fraseComecaComA = frase.startsWith("a");
+        if(fraseComecaComA) { //Não precisa colocar == True pq o startsWith e endsWith são funções booleanas, ou seja, sempre retornam true ou false, então dps da verificação fraseComecaComA vai ser True ou Falso, então o if fica asiim if(true) (obrigando a execução do if) ou if(false) (Fazendo com que o if seja ignorado)
+            comecaA.innerHTML = "Sim";
+        } else {
+            comecaA.innerHTML = "Não";
+        }
+
+        var fraseTerminaComPontoComBR = frase.endsWith(".com.br");
+        if(fraseTerminaComPontoComBR) {
+            terminaCerto.innerHTML = "Sim";
+        } else {
+            terminaCerto.innerHTML = "Não";
+        }
+
+    }
+</script>

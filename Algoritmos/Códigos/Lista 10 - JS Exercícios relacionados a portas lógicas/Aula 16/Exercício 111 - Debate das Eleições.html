@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 111 - Debate das Eleições</title>
+</head>
+<body>
+    <select id="CandidatoA">
+        <option value="2">Candidato A</option>
+        <option value="0">Não concordo com o tema</option>
+        <option value="1">Concordo com o tema</option>
+    </select>
+    <select id="CandidatoB">
+        <option value="2">Candidato B</option>
+        <option value="0">Não concordo com o tema</option>
+        <option value="1">Concordo com o tema</option>
+    </select><br>
+    <button onclick="interromper()">Devo interromper?</button>
+</body>
+</html>
+<script>
+    function interromper(){
+        var candA = Number(CandidatoA.value)
+        var candB = Number(CandidatoB.value)
+
+        if(candA==0 && candB==0){
+            alert("Debate continua: ninguém concorda")
+        }else if(candA==0 && candB==1){
+            alert("Debate continua: apenas candidato B concorda")
+        }else if(candA==1 && candB==0){
+            alert("Debate continua: apenas candidato A concorda")
+        }else if(candA==2 || candB==2){
+            alert("Você tem que escolher uma opção para cada Candidato")
+        }else{
+            alert("Debate pode encerrar: ambos candidatos concorda com o tema")
+        }
+    }
+</script>

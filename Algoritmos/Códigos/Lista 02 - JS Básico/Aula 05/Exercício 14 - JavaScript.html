@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao JavaScript(JS)</title>
+</head>
+<body>
+        <button onclick="meuSegundoPrograma()">Botaozinho Clicável Show</button> <!--Cria um Botão-->
+</body>
+</html>
+<!--Para começar a usar o JS tem que abrir a tag scrip, preferencialmente dps da tag HTML(<html>)-->
+<script> //Pra comentar tem que usar "// ou /* */"
+//Padrões de nomenclatura
+/*
+    "_" Snake Case
+    "aA" Camel Case
+    "palavra1-palavra2" Kebab Case
+//Não usar em nomes de função
+    Espaço
+    1ª letra maiúscula
+    kebab case
+ */
+function meu_primeiro_programa(){  
+  document.title = "Ex14JS";
+}
+//Existem palavras que são reservadas, por exemplo, "function", portanto, não dá pra usar alert(function)
+function meuSegundoPrograma(){
+    alert("Vou chamar a função'meu_primeiro_programa'");
+    meu_primeiro_programa();
+}
+</script>

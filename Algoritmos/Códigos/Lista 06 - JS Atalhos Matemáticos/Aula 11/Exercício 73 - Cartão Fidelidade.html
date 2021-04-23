@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 73 - Cartão Fidelidade</title>
+</head>
+
+<style>
+    .global{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="global">
+        <h1><strong>Quantas passagens deseja comprar?</strong></h1>
+
+        <img src="./Imagens/Promoção Passagens.png"><br>
+
+        <div class="botoes">
+            <button onclick="pas8()">08 passagens</button> <button onclick="pas20()">20 passagens</button> <button onclick="pas50()">50 passagens</button>
+        </div><br>
+
+        <div id="bonus"></div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    precoNormal = 4.40
+    
+    function pas8(){
+        var precoPas8 = 4.06
+        var pctAmenos = precoPas8/precoNormal*100
+        var pasBonus  = (8*precoNormal-8*precoPas8)/precoNormal
+        bonus.innerHTML = `Ao comprar 8 passagens, você pagou ${pctAmenos.toFixed(2)}%. É como se você tivesse ganhado ${pasBonus.toFixed(1)} passagens a mais`
+    }
+    
+    function pas20(){
+        var precoPas20 = 3.93
+        var pctAmenos = precoPas20/precoNormal*100
+        var pasBonus  = (20*precoNormal-20*precoPas20)/precoNormal
+        bonus.innerHTML = `Ao comprar 20 passagens, você pagou ${pctAmenos.toFixed(2)}%. É como se você tivesse ganhado ${pasBonus.toFixed(1)} passagens a mais`
+    }
+
+    function pas50(){
+        var precoPas50 = 3.83
+        var pctAmenos = precoPas50/precoNormal*100
+        var pasBonus  = (50*precoNormal-50*precoPas50)/precoNormal
+        bonus.innerHTML = `Ao comprar 50 passagens, você pagou ${pctAmenos.toFixed(2)}%. É como se você tivesse ganhado ${pasBonus.toFixed(1)} passagens a mais`
+    }
+
+</script>

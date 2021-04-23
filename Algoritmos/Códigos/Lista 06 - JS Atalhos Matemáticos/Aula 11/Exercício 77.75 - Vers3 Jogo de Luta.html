@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 77.75 - Vers2 Jogo de Luta</title>
+</head>
+
+<style>
+    .centralizarLifebars, .botaoIniciar, #fotos, #socosDados{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .txtsSoco{
+        text-align: center;
+        margin-bottom: 5px;
+        width: 450px;
+    }
+
+    #vitoria{
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 35px;
+        font-weight: bolder;
+    }
+</style>
+
+<body style="font-family: Helvetica, Arial, sans-serif;">
+    <div class="botaoIniciar">
+        <button id="botIni"onclick="iniciar()">Iniciar Jogo</button>
+    </div>
+
+    <div id="luta" style="display: initial;">
+        <div id="fotos"></div>
+
+        <div class="centralizarLifebars">
+            <div id="life1" style="float: left; margin-right: 5px; width: 450px;"></div>
+            <div id="life2" style="float: right; width: 450px"></div>        
+        </div>
+
+        <div id="socosDados"></div>
+    </div>
+
+    <div id="vitoria"></div>
+</body>
+</html>
+
+<script>
+
+    var compLifeBar1 = 100
+    var compLifeBar2 = 100
+    var socoNoMamaco = 0
+    var socoNoLacoste = 0
+    var margem = 0 //Pra fazer a vida do kong diminuir pra direita
+    
+    function iniciar(){
+        compLifeBar1 = 100
+        compLifeBar2 = 100
+        socoNoMamaco = 0
+        socoNoLacoste = 0
+        margem = 0
+        
+
+        luta.style.display = 'initial'
+        vitoria.innerHTML = " "
+        fotos.innerHTML = 
+            `<img src="https://wallpaper29.files.wordpress.com/2016/09/godzilla-2016-wallpaper-1600x900.jpg" style="width: 450px; margin-right: 5px" 
+            onclick="hitP1(), vencedor()">    
+            
+            <img src="https://poltronanerd.com.br/wp-content/uploads/2017/03/kong-skull-island-main.jpg" style="width:450px;" 
+            onclick="hitP2(), vencedor()">`
+        
+            life1.innerHTML = `<div id="lifeBar1" style="width: 450px; height: 50px; background-color: blue;"></div>`
+            life2.innerHTML = `<div id="lifeBar2" style="background-color: red; width: 450px; height: 50px;"></div>`
+                                
+            socosDados.innerHTML =`
+                <div id="txtSoco1" class="txtsSoco">
+                         <span>O lutador 1 levou: <strong id="totHitP1"> 0 </strong> socos</span>
+                </div>
+                
+                <div id="txtSoco2" class="txtsSoco">
+                        <span>O lutador 2 levou:<strong id="totHitP2"> 0 </strong> socos </span>
+                </div>
+                `           
+
+                botIni.innerHTML = `Reset`
+    }
+
+    function hitP1(){
+        compLifeBar1 -= 5 
+        ++socoNoLacoste
+        lifeBar1.style.width = `${compLifeBar1}%`
+        totHitP1.innerHTML = `${socoNoLacoste}`
+    }
+    
+    function hitP2(){
+        compLifeBar2 -= 5
+        margem += 5
+        ++socoNoMamaco
+        lifeBar2.style.width = `${compLifeBar2}%`
+        lifeBar2.style.marginLeft = `${margem}%`
+        totHitP2.innerHTML = `${socoNoMamaco}`
+    }
+
+    function vencedor(){  
+        if(compLifeBar1==0){
+            luta.style.display = 'none'
+            vitoria.innerHTML=`
+            <div>MAMACO REINA U U U U U</div>
+            <img src="https://media1.tenor.com/images/959f9f07663b2fb595a1231e74d02214/tenor.gif?itemid=13202471" style="width:450px">`
+        }
+        
+        if(compLifeBar2==0){
+            luta.style.display = 'none'
+            vitoria.innerHTML=`
+                <div>Godzilla é o Rei dos Monstros</div>
+                <img src="https://comicvine1.cbsistatic.com/uploads/original/11124/111241908/7780951-ddd12efa-0140-4220-b8a3-078f6708849f.gif">`
+        }
+    }
+    
+</script>

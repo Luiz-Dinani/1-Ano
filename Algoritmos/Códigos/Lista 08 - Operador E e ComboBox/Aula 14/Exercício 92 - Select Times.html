@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 92 - Select Times</title>
+</head>
+<body>
+    <select id="times">
+        <option value="https://a.espncdn.com/i/teamlogos/soccer/500/874.png">Corinthians</option>
+        <option value="https://cdn.worldvectorlogo.com/logos/palmeiras.svg">Palmeiras</option>
+        <option value="https://cdn.worldvectorlogo.com/logos/santos-futebol-clube-de-alegrete-rs.svg">Santos</option>
+        <option value="https://seeklogo.com/images/S/Sao_Paulo_Futebol_Clube-logo-F291AB0A19-seeklogo.com.png">São Paulo</option>
+    </select>
+    <button onclick="ver()">Ver Escudo</button>
+    <div><img src="" id="clube"></div>
+</body>
+</html>
+<script>
+    function ver(){
+        var time = times.value
+        clube.src=time
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 58 - Temperatura</title>
+</head>
+<body>
+    <input id="temperatura_ambiente"></input>
+    <button onclick="verificar()">Verificar Clima</button>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var temp = temperatura_ambiente.value
+        if(temp<10){
+            resultado.innerHTML = '<img src="https://media-cdn.tripadvisor.com/media/photo-s/11/72/e3/46/lugar-top-comida-top.jpg">'
+        } else {
+            resultado.innerHTML = '<img src="https://conteudo.imguol.com.br/c/entretenimento/40/2018/09/13/pao-estragado-1536856097776_v2_300x300.jpg">'
+        }
+    }
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 87 - Estações do ano</title>
+</head>
+<body>
+    <select id="mes_do_ano" onchange="consultar()">
+        <option  value="jan">Janeiro</option>
+        <option value="fev">Fevereiro</option>
+        <option value="mar">Março</option>
+        <option value="abr">Abril</option>
+        <option value="mai">Maio</option>
+        <option value="jun">Junho</option>
+        <option value="jul">Julho</option>
+        <option value="ago">Agosto</option>
+        <option value="set">Setembro</option>
+        <option value="out">Outubro</option>
+        <option value="nov">Novembro</option>
+        <option value="dez">Dezembro</option>
+    </select>
+    <div id="estacao"></div>
+</body>
+</html>
+
+<script>
+    function consultar(){
+        var mes = mes_do_ano.value
+        if(mes=="dez"){
+            estacao.innerHTML = "Inverno"
+        }else if(mes=="jan"){
+            estacao.innerHTML = "Inverno"
+        }else if(mes=="fev"){
+             estacao.innerHTML = "Inverno"
+        }        
+        else if(mes=="mar"){
+            estacao.innerHTML = "Primavera"
+        }else if(mes=="abr"){
+            estacao.innerHTML = "Primavera"
+        }else if(mes=="mai"){
+             estacao.innerHTML = "Primavera"
+        }        
+        else if(mes=="jun"){
+            estacao.innerHTML = "Verão"
+        }else if(mes=="jul"){
+            estacao.innerHTML = "Verão"
+        }else if(mes=="ago"){
+             estacao.innerHTML = "Verão"
+        }       
+        else if(mes=="set"){
+            estacao.innerHTML = "Outono"
+        }else if(mes=="out"){
+            estacao.innerHTML = "Outono"
+        }else{
+             estacao.innerHTML = "Outono"
+        }
+    }
+</script>

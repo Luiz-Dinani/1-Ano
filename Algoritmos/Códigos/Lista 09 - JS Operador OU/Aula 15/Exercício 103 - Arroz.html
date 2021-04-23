@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 104 - Arroz</title>
+</head>
+
+<body>
+    <select id="arroz">
+        <option value="branco">Branco</option>
+        <option value="integral">Integral</option>
+    </select><br>
+    <input id="tempoCoz" placeholder="Qual foi o tempo (em minutos) de cozimento?"><br>
+    <input id="qtdSal" placeholder="Quanto de sal (em gramas) foi usado?"><br>
+    <button onclick="avaliar()">Avaliar Arroz</button><br>
+    <span id="resultado"></span><br>
+    <img src="" id="fotoArroz">
+    <img src="" id="fotoJaquinho1">
+    <img src="" id="fotoJaquinho2">
+    <img src="" id="fotoJaquinho3">
+</body>
+</html>
+
+<script>
+
+    function avaliar(){
+       var tipo = arroz.value
+       var tempo = Number(tempoCoz.value)
+       var sal = Number(qtdSal.value)
+
+       if((tipo=="branco" && tempo==10 && sal<=10) || (tipo=="integral" && tempo==20 && sal<=15)){
+           resultado.innerHTML = `Arroz perfeito, parabéns!<br>`
+
+               if(tipo=="branco"){
+                    fotoArroz.src = "https://img.itdg.com.br/tdg/images/recipes/000/000/770/323683/323683_original.jpg?mode=crop&width=710&height=400"
+                    fotoJaquinho1.src  = " "
+                    fotoJaquinho2.src  = " "
+                    fotoJaquinho3.src  = " "
+              }else if(tipo=="integral"){
+                    fotoArroz.src = "https://www.cozinhatecnica.com/wp-content/uploads/2019/05/receita-de-arroz-integral-soltinho.jpg"
+                    fotoJaquinho1.src  = " "
+                    fotoJaquinho2.src  = " "
+                    fotoJaquinho3.src  = " "
+               }
+               
+        }else{
+            resultado.innerHTML=`ARROZ TODO FODIDO!<br>`
+            fotoArroz.src = " "
+            fotoJaquinho1.src  = "https://pbs.twimg.com/media/EHSUH8zXYAAxEDp.jpg"
+            fotoJaquinho2.src  = "https://i.ytimg.com/vi/Qy8KxfXDqjg/hqdefault.jpg"
+            fotoJaquinho3.src  = "https://i.ytimg.com/vi/xAH5btTCYyE/maxresdefault.jpg"
+        }
+}
+</script>

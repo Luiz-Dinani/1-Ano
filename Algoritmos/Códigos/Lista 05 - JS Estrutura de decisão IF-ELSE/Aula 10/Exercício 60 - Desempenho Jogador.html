@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 60 - Desempenho Jogador</title>
+</head>
+<body>
+    <input id="quantas_partidas" placeholder="Insira quantas partidas o atacante jogou"><br>
+    <input id="quantos_gols" placeholder="Insira quantos gols o atacante marcou?"><br>
+    <button onclick="estudar()">Estudar Atacante</button>
+    <div id="estudo"></div>
+</body>
+</html>
+
+<script>
+    function estudar(){
+        var partidas = Number(quantas_partidas.value);
+        var gols = Number(quantos_gols.value);
+        var media = gols/partidas;
+
+        if (media<0.2){
+            estudo.innerHTML = `Melhor mudar de posição<br>
+            <img src="https://cdn.folhape.com.br/img/c/1200/900/dn_arquivo/2019/03/higauin.jpg">`
+        } else{
+            if(media<0.6){
+                estudo.innerHTML = `Atacante mediano<br>
+            <img src="http://cdn.espn.com.br/thumb/622_97c0ffc0-e000-3df2-914d-aacb662c3d52.jpg">`
+            } else{
+                estudo.innerHTML = `Atacante do futuro<br>
+            <img src="https://i.ytimg.com/vi/a8N6p3jAWBw/maxresdefault.jpg">`
+            }
+        }
+
+    }
+</script>

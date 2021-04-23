@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 109 - Movimento de ruas</title>
+</head>
+<body>
+    <select id="RuaA">
+        <option value="2">Rua A</option>
+        <option value="0">Parada</option>
+        <option value="1">Andando</option>
+    </select>
+
+    <select id="RuaB">
+        <option value="2">Rua B</option>
+        <option value="0">Parada</option>
+        <option value="1">Andando</option>
+    </select><br>
+    <button onclick="simular()">Simular</button>
+</body>
+</html>
+
+<script>
+    function simular(){
+        var movA = Number(RuaA.value)
+        var movB = Number(RuaB.value)
+
+        if(movA==1 && movB==1){
+            alert("Risco de Colisão")
+        }else if(movA==0 && movB==0){
+            alert("Risco de Engarrafamento")
+        }else if(movA==2 || movB==2){
+            alert("Você tem que escolher uma opção para cada rua")
+        }else{
+            alert("Fluxo Perfeito")
+        }
+    }
+</script>

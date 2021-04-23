@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 33 - Ki de um Super Sayajin</title>
+</head>
+<body>
+    <input id="ki_base" placeholder="Qual o ki base do Sayajin?"><br>
+    <b>Transformar em:</b><br>
+    <button onclick="ssj()">SSJ</button> <button onclick="ssj2()">SSJ2</button> <button onclick="ssj3()">SSJ3</button>
+    <div id="Transformação"></div>
+</body>
+</html>
+
+
+<script>
+
+    function ssj() {
+        var kiB = Number(ki_base.value);
+        var kiTrans = Number(kiB*50);
+        Transformação.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${kiTrans} e ele fica parecido com isso: <br>
+        <img src="./Super Sayajins/SSJ.png">`;
+    }
+
+    function ssj2(){
+        var kiB = Number(ki_base.value);
+        var kiTrans = Number(kiB*100);
+        Transformação.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${kiTrans} e ele fica parecido com isso: <br>
+        <img src="./Super Sayajins/SSJ2.png">`;
+    }
+
+    function ssj3(){
+        var kiB=Number(ki_base.value);
+        var kiTrans = Number(kiB*200);
+        Transformação.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${kiTrans} e ele fica parecido com isso: <br>
+        <img src="./Super Sayajins/SSJ3.png">`
+    }
+</script>

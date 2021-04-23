@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 53 - Else;</title>
+</head>
+<body>
+    <input id="num1" placeholder="Insira o dividendo aqui"><br>
+    <input id="num2" placeholder="Insira o divisor aqui"><br>
+    <button onclick="dividir()">Dividir</button><br>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    
+    function dividir(){
+
+        var n1 = Number(num1.value);
+        var n2 = Number(num2.value);
+        var resultadoDivisao = n1/n2;
+
+
+        resultado.innerHTML = `${n1} por ${n2} é ${resultadoDivisao.toFixed(2)}. `;
+
+        if (resultadoDivisao>10){
+            resultado.innerHTML += 'Uau, é um número gigante!';
+        } else{
+            resultado.innerHTML += 'Neeee, que número pequeno. Esperava mais';
+            
+        }
+
+        
+    }
+</script>

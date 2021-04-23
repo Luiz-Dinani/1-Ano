@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        background-image:  linear-gradient(45deg, #1f408b, #789fda, #d00927);
+        height: 100vh;
+        background-size: cover;
+    }
+    input{
+        width: 250px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    select{
+        border-radius: 5px;
+    }
+    #timeA{
+        background-image:  linear-gradient(45deg, #552583, #FDB927);
+    }
+    #timeB{
+        background-image:  linear-gradient(45deg, #00538C, #B8C4CA);
+    }
+    #timeC{
+        background-image:  linear-gradient(45deg, #008348, #bb9753);
+    }
+    button{
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div>
+        <img src="https://pngimg.com/uploads/nba/nba_PNG13.png" alt="Simbolo NBA" height="200px">
+    </div>
+    <input id="premioTotal" placeholder="Qual o prêmio total?"><br>
+    <input id="maximoRodadas" placeholder="Qual o número máximo de rodadas?"><br>
+
+    <select id="timeA">
+        <option value="-1">Resultado Time A</option>
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select>
+
+    <select id="timeB">
+        <option value="-1">Resultado Time B</option>
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select>
+
+    <select id="timeC">
+        <option value="-1">Resultado Time C</option>
+        <option value="3">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="0">Derrota</option>
+    </select><br>
+
+    <button onclick="jogar()">Realizar rodada</button> <button onclick="revelar()">Revelar Premiação</button><br>
+
+    <div id="campeonato" style="display: none;">
+        Rodada Atual: <span id="rodAtual"></span><br>
+        Pontos TimeA: <span id="pontosA"></span><br>
+        Pontos TimeB: <span id="pontosB"></span><br>
+        Pontos TimeC: <span id="pontosC"></span>
+    </div>
+</body>
+</html>
+
+<script>
+    var ptsA = 0 //Pontos time A
+    var ptsB = 0 //Pontos time B
+    var ptsC = 0 //Pontos time C
+    var rodada = 0
+    var ptsTotal = 0
+    var premio = 0
+
+    function jogar() {
+        premio = Number(premioTotal.value)
+        var maxRod = Number(maximoRodadas.value)
+        var resTimeA = Number(timeA.value)
+        var resTimeB = Number(timeB.value)
+        var resTimeC = Number(timeC.value)
+
+        if (premio < 1000 || maxRod < 1 || resTimeA == "-1" || resTimeB == "-1" || resTimeC == "-1") {
+            alert("Dados inválidos para a rodada")
+        } else if (rodada < maxRod) {
+            campeonato.style.display = "block"
+
+            ++rodada
+            ptsA += resTimeA
+            ptsB += resTimeB
+            ptsC += resTimeC
+            ptsTotal = ptsA + ptsB + ptsC
+
+            rodAtual.innerHTML = rodada
+            pontosA.innerHTML = ptsA
+            pontosB.innerHTML = ptsB
+            pontosC.innerHTML = ptsC
+        } else {
+            revelar()
+        }
+    }
+
+    function revelar() {
+        var pctPtsA = ptsA / ptsTotal
+        var pctPtsB = ptsB / ptsTotal
+        var pctPtsC = ptsC / ptsTotal
+        var premioA = premio * pctPtsA
+        var premioB = premio * pctPtsB
+        var premioC = premio * pctPtsC
+
+        pontosA.innerHTML = premioA.toFixed(2)
+        pontosB.innerHTML = premioB.toFixed(2)
+        pontosC.innerHTML = premioC.toFixed(2)
+    }
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 113 - math.random</title>
+</head>
+<style>
+    .centralizarLifebars,
+    .botaoIniciar,
+    #fotos,
+    #socosDados {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .txtsSoco {
+        text-align: center;
+        margin-bottom: 5px;
+        width: 450px;
+    }
+
+    #vitoria {
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 35px;
+        font-weight: bolder;
+    }
+</style>
+
+<body style="font-family: Helvetica, Arial, sans-serif;">
+    <audio id="main" src="./ExtrasEx113/Música que o Luan usa no Tekken UUUU.mp3"></audio>
+    <audio id="kong" src="./ExtrasEx113/Tropa do Kong.mp3"></audio>
+    <audio id="godzilla" src="./ExtrasEx113/Tropa do Godzilla.mp3"></audio>
+
+    <div class="botaoIniciar">
+        <button id="botIni" onclick="iniciar()">Iniciar Jogo</button>
+    </div>
+
+    <div class="botaoIniciar">
+        <button id="botReset" style="display: none;" onclick="iniciar(), reset()">Reiniciar Jogo</button>
+    </div>
+
+    <div id="luta" style="display: block;">
+        <div id="fotos"></div>
+        <div class="centralizarLifebars">
+            <div id="life1" style="float: left; margin-right: 5px; width: 450px;"></div>
+            <div id="life2" style="float: right; width: 450px"></div>
+        </div>
+        <div id="socosDados"></div>
+    </div>
+
+    <div id="vitoria"></div>
+</body>
+
+</html>
+
+<script>
+    const themeMain = document.getElementById('main') //Para selecionar a música a ser controlada
+    const themeKong = document.getElementById('kong')
+    const themeGodzilla = document.getElementById('godzilla')
+    var compLifeBar1 = 100
+    var compLifeBar2 = 100
+    var socoNoMamaco = 0
+    var socoNoLacoste = 0
+    var margem = 0 //Pra fazer a vida do kong diminuir pra direita
+
+    function iniciar() {
+        compLifeBar1 = 100
+        compLifeBar2 = 100
+        socoNoMamaco = 0
+        socoNoLacoste = 0
+        margem = 0
+
+        luta.style.display = 'initial'
+        vitoria.innerHTML = " "
+        fotos.innerHTML =
+            `<img src="https://wallpaper29.files.wordpress.com/2016/09/godzilla-2016-wallpaper-1600x900.jpg" style="width: 450px; margin-right: 5px" 
+            onclick="hitP1(), vencedor()">    
+            
+            <img src="https://poltronanerd.com.br/wp-content/uploads/2017/03/kong-skull-island-main.jpg" style="width:450px;" 
+            onclick="hitP2(), vencedor()">`
+
+        life1.innerHTML = `<div id="lifeBar1" style="width: 450px; height: 50px; background-color: blue;"></div>`
+        life2.innerHTML = `<div id="lifeBar2" style="background-color: red; width: 450px; height: 50px;"></div>`
+        socosDados.innerHTML = `
+                <div id="txtSoco1" class="txtsSoco">
+                         <span>O lutador 1 levou: <strong id="totHitP1"> 0 </strong> socos</span>
+                </div>
+                
+                <div id="txtSoco2" class="txtsSoco">
+                        <span>O lutador 2 levou:<strong id="totHitP2"> 0 </strong> socos </span>
+                </div>`
+        botIni.style.display = `none`
+        botReset.style.display = `block`
+        themeMain.play()
+        themeKong.pause()
+        themeGodzilla.pause()
+    }
+
+    function reset() {
+        botIni.style.display = `block`
+        botReset.style.display = `none`
+    }
+
+    function hitP1() {
+        ++socoNoLacoste
+        totHitP1.innerHTML = socoNoLacoste
+
+        if (compLifeBar2 < compLifeBar1) {
+            var chanceCritico = compLifeBar1 / compLifeBar2 - 1 //Transforma o resultado da conta em um número inteiro, sem arredondar, por exemplo parseInt(5,5487409447445)=5
+            var sorteio = parseInt(Math.random() * 10 + 1) //Math.random vai gerar um número aleatório >=0 && <1
+            if (sorteio <= chanceCritico * 10) {
+                danoCritico = 20 * (1 + chanceCritico)
+                compLifeBar1 -= danoCritico
+            } else {
+                compLifeBar1 -= 20
+            }
+        } else {
+            compLifeBar1 -= 20
+        }
+        lifeBar1.style.width = `${compLifeBar1}%`
+    }
+
+    function hitP2() {
+        ++socoNoMamaco
+        totHitP2.innerHTML = socoNoMamaco
+        if (compLifeBar1 < compLifeBar2) {
+            var chanceCritico = compLifeBar2 / compLifeBar1 - 1
+            var sorteio = parseInt(Math.random() * 10 + 1)
+            if (sorteio <= chanceCritico * 10) {
+                danoCritico = 20 * (1 + chanceCritico)
+                compLifeBar2 -= danoCritico
+                margem += danoCritico
+            } else {
+                compLifeBar2 -= 20
+                margem += 20
+            }
+        } else {
+            compLifeBar2 -= 20
+            margem += 20
+        }
+
+        lifeBar2.style.width = `${compLifeBar2}%`
+        lifeBar2.style.marginLeft = `${margem}%`
+    }
+
+    function vencedor() {
+        if (compLifeBar1 <= 0) {
+            botIni.style.display = `none`
+            botReset.style.display = `block`
+            luta.style.display = 'none'
+            vitoria.innerHTML = `
+            <div>MAMACO REINA U U U U U</div>
+            <img src="https://media1.tenor.com/images/959f9f07663b2fb595a1231e74d02214/tenor.gif?itemid=13202471" style="width:450px">`
+            themeMain.pause()
+            themeKong.play()
+        }
+
+        if (compLifeBar2 <= 0) {
+            botIni.style.display = `none`
+            botReset.style.display = `block`
+            luta.style.display = 'none'
+            vitoria.innerHTML = `
+                <div>Godzilla é o Rei dos Monstros</div>
+                <img src="https://comicvine1.cbsistatic.com/uploads/original/11124/111241908/7780951-ddd12efa-0140-4220-b8a3-078f6708849f.gif">`
+            themeMain.pause()
+            themeGodzilla.play()
+        }
+    }
+</script>

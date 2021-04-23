@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 56 - Pizza de no máximo 20 3</title>
+</head>
+<body>
+    <input id="valor_da_Pizza" placeholder="Qual o valor de cada pizza?"><br>
+
+    <input id="qtd_Pizzas" placeholder="Quantas Pizzas?"><br>
+
+    <input id="qtd_Amigos" placeholder="Quantas pessoas vão pagar?"><br>
+    
+    <button onclick="calcular()">Rola pizza?</button>
+    <div id="Resultado"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var valPizzas = Number(valor_da_Pizza.value)
+        var qtdPizzas = Number(qtd_Pizzas.value)
+        var valTotalPizzas = valPizzas*qtdPizzas
+        var qtdAmigos = Number(qtd_Amigos.value)
+        var rachada =  valTotalPizzas/qtdAmigos
+
+        Resultado.innerHTML = `<strong>Cada um(a) vai pagar R$${rachada} pela pizza. <\strong>`
+        
+        if (rachada>20){
+            Resultado.innerHTML += '<strong style="color: blue;"><i>Deu ruim! Pizza muito cara!</i></strong>'
+        } else{
+            Resultado.innerHTML += 'Uhu! Vamos pedir pizza!'
+            }
+    }
+</script>

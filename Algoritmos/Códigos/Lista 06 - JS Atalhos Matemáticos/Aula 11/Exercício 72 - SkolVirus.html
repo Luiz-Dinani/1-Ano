@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 72 - SkolVirus</title>
+</head>
+
+<body>
+
+    <input id="pessoasInfectadas" placeholder="Quantas pessoas estão infectadas?"><br>
+
+    <button onclick="ontem()">Quantas pessoas infectadas ontem?</button>
+    <div id="infectadosOntem"></div>
+
+    <button onclick="amanha()">Quantas pessoas infectadas Amanha?</button>
+    <div id="infectadosAmanha"></div>
+
+    <button onclick="UmMes()">Quantas pessoas infectadas daqui a 1 mês?</button>
+    <div id="infectados1Mes"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var infDiarios = 35
+    function ontem(){
+        var inf = Number(pessoasInfectadas.value)
+        var infOntem = inf-35
+        infectadosOntem.innerHTML = `Ontem haviam ${infOntem} pessoas infectadas`
+
+    }
+    
+    function amanha(){
+        var inf = Number(pessoasInfectadas.value)
+        var infAmanha = inf+35
+        infectadosAmanha.innerHTML = `Amanha haverão ${infAmanha} pessoas infectadas`
+    }
+
+    function UmMes(){
+        var inf = Number(pessoasInfectadas.value)
+        var inf1Mes = inf+105
+        infectados1Mes.innerHTML = `Daqui a 1 mês haverão ${inf1Mes} pessoas infectadas`
+    }
+
+
+</script>
