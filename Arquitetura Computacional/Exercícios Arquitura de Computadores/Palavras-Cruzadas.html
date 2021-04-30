@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Palavras-Cruzadas</title>
+</head>
+
+<body>
+    <audio id="goku" src="./Sons/Goku_ Seu Fracassado.mp3"></audio>
+    <audio id="parabeins" src="./Sons/Muitos Parabains - Parabéns Evangelion dublagem PT.mp3"></audio>
+    <div class="container"">
+        <div class=" descricoes">
+        <ul>
+            <li id="item01">00) Tipo de memória para armazenar uma quantidade imensa de dados</li>
+            <li id="item02">01) Pensam melhor que duas cabeças, mas não do que oito</li>
+            <li id="item03">02) <span class="piscar">Luz ultra-violeta</span></li>
+            <li id="item04">03) Encomenda</li>
+            <li id="item05">04) Corta Caminho</li>
+            <li id="item06">05) Soquete FCLGA1200 Overclock de 4.3GHz CPU Mark de 12450</li>
+            <li id="item07">06) Aquele que passa no neurocirurgião da assitência técnica</li>
+            <li id="item08">07) Sakon e Ukon</li>
+            <li id="item09">08) Vizinho mais próximo da CPU</li>
+            <li id="item10">09) Barry Allen</li>
+            <li id="item11">10) 10+10=4</li>
+            <li id="item12">11) Local de Entrega</li>
+            <li id="item13">12) Tem amnésia por causa do escuro</li>
+            <li id="item14">13) 1.6</li>
+            <li id="item15">14) Soquete FCLGA1200 Overclock de 4.8GHz CPU Mark 17400</li>
+            <li id="item16">15) Semi Alfabetizado</li>
+        </ul>
+        <button onclick="verificar()">Verificar</button> <button id="desistir" style="display:none" onclick="revelar()">Eu me rendo, o Goku está certo!</button> <button id="gabarito" style="display:none" onclick="preguica()">Além de fracassado sou preguiçoso</button>
+        <p>Feito por: <a href="https://github.com/Luiz-Dinani">Luiz Carlos</a>. Fique a vontade para alterar o código e
+            fazer sua versão ;)</p>
+
+    </div>
+    <div class="selos">
+        <img id="fail" class="foto" src="https://miro.medium.com/max/1274/1*ON_d7DWgW8g8uu3EBntfNw.png">
+        <img id="success" class="foto" src="./Cara fazendo joia transparente.png">
+    </div>
+    </div>
+    <div class="jogo">
+        <div id="Linha-01" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin01-06" class="quadrado">
+                <input id="L01Q06" class="char" maxlength="1"> <!-- placeholder="M" -->
+                <span class="num">00</span>
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin01-09" class="quadrado">
+                <input id="L01Q09" class="char" maxlength="1"> <!-- placeholder="Q" -->
+                <span class="num">01</span>
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-02" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin02-06" class="quadrado">
+                <input id="L02Q06" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin02-09" class="quadrado">
+                <input id="L02Q09" class="char" maxlength="1"> <!-- placeholder="U" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-03" class="linha">
+            <div class="quadrado"></div>
+            <div id="Lin03-02" class="quadrado">
+                <input id="L03Q02" class="char" maxlength="1"> <!--  placeholder="E"  -->
+                <span class="num">02</span>
+            </div>
+            <div id="Lin03-03" class="quadrado">
+                <input id="L03Q03" class="char" maxlength="1"> <!-- placeholder="P" -->
+            </div>
+            <div id="Lin03-04" class="quadrado">
+                <input id="L03Q04" class="char" maxlength="1"> <!-- placeholder="R" -->
+            </div>
+            <div id="Lin03-05" class="quadrado">
+                <input id="L03Q05" class="char" maxlength="1"> <!-- placeholder="O" -->
+            </div>
+            <div id="Lin03-06" class="quadrado">
+                <input id="L03Q06" class="char" maxlength="1"> <!-- placeholder="M" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin03-09" class="quadrado">
+                <input id="L03Q09" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-04" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin04-06" class="quadrado">
+                <input id="L04Q06" class="char" maxlength="1"> <!-- placeholder="Ó" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin04-09" class="quadrado">
+                <input id="L04Q09" class="char" maxlength="1"> <!-- placeholder="D" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-05" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin05-04" class="quadrado">
+                <input id="L05Q04" class="char" maxlength="1"> <!--  placeholder="D"  -->
+                <span class="num">03</span>
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin05-06" class="quadrado">
+                <input id="L05Q06" class="char" maxlength="1"> <!-- placeholder="R" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin05-09" class="quadrado">
+                <input id="L05Q09" class="char" maxlength="1" value="-">
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-06" class="linha">
+            <div class="quadrado"></div>
+            <div id="Lin06-02" class="quadrado">
+                <input id="L06Q02" class="char" maxlength="1"> <!-- placeholder="D"  -->
+                <span class="num">04</span>
+            </div>
+            <div id="Lin06-03" class="quadrado">
+                <input id="L06Q03" class="char" maxlength="1"> <!-- placeholder="M" -->
+            </div>
+            <div id="Lin06-04" class="quadrado">
+                <input id="L06Q04" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin06-06" class="quadrado">
+                <input id="L06Q06" class="char" maxlength="1"> <!-- placeholder="I"  -->
+                <span class="num">05</span>
+            </div>
+            <div id="Lin06-07" class="quadrado">
+                <input id="L06Q07" class="char" maxlength="1"> <!-- placeholder="5" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin06-09" class="quadrado">
+                <input id="L06Q09" class="char" maxlength="1"> <!-- placeholder="C"  -->
+                <span class="num">06</span>
+            </div>
+            <div id="Lin06-10" class="quadrado">
+                <input id="L06Q10" class="char" maxlength="1"> <!-- placeholder="P" -->
+            </div>
+            <div id="Lin06-11" class="quadrado">
+                <input id="L06Q11" class="char" maxlength="1"> <!-- placeholder="U" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-07" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin07-04" class="quadrado">
+                <input id="L07Q04" class="char" maxlength="1"> <!-- placeholder="T" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin07-06" class="quadrado">
+                <input id="L07Q06" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin07-09" class="quadrado">
+                <input id="L07Q09" class="char" maxlength="1"> <!-- placeholder="O" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-08" class="linha">
+            <div class="quadrado"></div>
+            <div id="Lin08-02" class="quadrado">
+                <input id="L08Q02" class="char" maxlength="1"> <!-- placeholder="D"  -->
+                <span class="num">07</span>
+            </div>
+            <div id="Lin08-03" class="quadrado">
+                <input id="L08Q03" class="char" maxlength="1"> <!-- placeholder="U" -->
+            </div>
+            <div id="Lin08-04" class="quadrado">
+                <input id="L08Q04" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div id="Lin08-05" class="quadrado">
+                <input id="L08Q05" class="char" maxlength="1"> <!-- placeholder="L" -->
+            </div>
+            <div id="Lin08-06" class="quadrado">
+                <input id="L08Q06" class="char" maxlength="1" value="-">
+            </div>
+            <div id="Lin08-07" class="quadrado">
+                <input id="L08Q07" class="char" maxlength="1"> <!-- placeholder="C" -->
+            </div>
+            <div id="Lin08-08" class="quadrado">
+                <input id="L08Q08" class="char" maxlength="1"> <!-- placeholder="O" -->
+            </div>
+            <div id="Lin08-09" class="quadrado">
+                <input id="L08Q09" class="char" maxlength="1"> <!-- placeholder="R" -->
+            </div>
+            <div id="Lin08-10" class="quadrado">
+                <input id="L08Q10" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-09" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin09-04" class="quadrado">
+                <input id="L09Q04" class="char" maxlength="1" value="-">
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin09-06" class="quadrado">
+                <input id="L09Q06" class="char" maxlength="1"> <!-- placeholder="D" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin09-09" class="quadrado">
+                <input id="L09Q09" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin09-15" class="quadrado">
+                <input id="L09Q15" class="char" maxlength="1"> <!-- placeholder="R"  -->
+                <span class="num">08</span>
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-10" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin10-04" class="quadrado">
+                <input id="L10Q04" class="char" maxlength="1"> <!-- placeholder="B" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin10-06" class="quadrado">
+                <input id="L10Q06" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin10-11" class="quadrado">
+                <input id="L10Q11" class="char" maxlength="1"> <!-- placeholder="F"  -->
+                <span class="num">09</span>
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin10-15" class="quadrado">
+                <input id="L10Q15" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-11" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin11-04" class="quadrado">
+                <input id="L11Q04" class="char" maxlength="1"> <!-- placeholder="U" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin11-06" class="quadrado">
+                <input id="L11Q06" class="char" maxlength="1" value="-">
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin11-10" class="quadrado">
+                <input id="L11Q10" class="char" maxlength="1"> <!-- placeholder="U"  -->
+                <span class="num">10</span>
+            </div>
+            <div id="Lin11-11" class="quadrado">
+                <input id="L11Q11" class="char" maxlength="1"> <!-- placeholder="L" -->
+            </div>
+            <div id="Lin11-12" class="quadrado">
+                <input id="L11Q12" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin11-15" class="quadrado">
+                <input id="L11Q15" class="char" maxlength="1"> <!-- placeholder="G" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-12" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin12-04" class="quadrado">
+                <input id="L12Q04" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin12-06" class="quadrado">
+                <input id="L12Q06" class="char" maxlength="1"> <!-- placeholder="M" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin12-11" class="quadrado">
+                <input id="L12Q11" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin12-15" class="quadrado">
+                <input id="L12Q15" class="char" maxlength="1"> <!-- placeholder="I" -->
+                <span class="num">11</span>
+            </div>
+            <div id="Lin12-16" class="quadrado">
+                <input id="L12Q16" class="char" maxlength="1"> <!-- placeholder="5" -->
+            </div>
+        </div>
+        <div id="Linha-13" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin13-06" class="quadrado">
+                <input id="L13Q06" class="char" maxlength="1"> <!-- placeholder="A"  -->
+                <span class="num">12</span>
+            </div>
+            <div id="Lin13-07" class="quadrado">
+                <input id="L13Q07" class="char" maxlength="1"> <!-- placeholder="D" -->
+            </div>
+            <div id="Lin13-08" class="quadrado">
+                <input id="L13Q08" class="char" maxlength="1"> <!-- placeholder="R"  -->
+                <span class="num">13</span>
+            </div>
+            <div id="Lin13-09" class="quadrado">
+                <input id="L13Q09" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div id="Lin13-10" class="quadrado">
+                <input id="L13Q10" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div id="Lin13-11" class="quadrado">
+                <input id="L13Q11" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div id="Lin13-12" class="quadrado">
+                <input id="L13Q12" class="char" maxlength="1" value="-">
+            </div>
+            <div id="Lin13-13" class="quadrado">
+                <input id="L13Q13" class="char" maxlength="1"> <!-- placeholder="B" -->
+            </div>
+            <div id="Lin13-14" class="quadrado">
+                <input id="L13Q14" class="char" maxlength="1"> <!-- placeholder="U" -->
+            </div>
+            <div id="Lin13-15" class="quadrado">
+                <input id="L13Q15" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-14" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin14-05" class="quadrado">
+                <input id="L14Q05" class="char" maxlength="1"> <!-- placeholder="C"  -->
+                <span class="num">14</span>
+            </div>
+            <div id="Lin14-06" class="quadrado">
+                <input id="L14Q06" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin14-08" class="quadrado">
+                <input id="L14Q08" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin14-11" class="quadrado">
+                <input id="L14Q11" class="char" maxlength="1"> <!-- placeholder="H" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin14-15" class="quadrado">
+                <input id="L14Q15" class="char" maxlength="1"> <!-- placeholder="T" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-15" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin15-06" class="quadrado">
+                <input id="L15Q06" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div class="quadrado"></div>
+            <div id="Lin15-08" class="quadrado">
+                <input id="L15Q08" class="char" maxlength="1"> <!-- placeholder="M" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin15-15" class="quadrado">
+                <input id="L15Q15" class="char" maxlength="1"> <!-- placeholder="R" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-16" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin16-06" class="quadrado">
+                <input id="L16Q06" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin16-15" class="quadrado">
+                <input id="L16Q15" class="char" maxlength="1"> <!-- placeholder="A" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-17" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin17-15" class="quadrado">
+                <input id="L17Q15" class="char" maxlength="1"> <!-- placeholder="D" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-18" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin18-14" class="quadrado">
+                <input id="L18Q14" class="char" maxlength="1"> <!-- placeholder="R" -->
+                <span class="num">15</span>
+            </div>
+            <div id="Lin18-15" class="quadrado">
+                <input id="L18Q15" class="char" maxlength="1"> <!-- placeholder="O" -->
+            </div>
+            <div id="Lin18-16" class="quadrado">
+                <input id="L18Q16" class="char" maxlength="1"> <!-- placeholder="M" -->
+            </div>
+        </div>
+        <div id="Linha-19" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin19-15" class="quadrado">
+                <input id="L19Q15" class="char" maxlength="1"> <!-- placeholder="R" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-20" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin20-15" class="quadrado">
+                <input id="L20Q15" class="char" maxlength="1"> <!-- placeholder="E" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+        <div id="Linha-21" class="linha">
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div class="quadrado"></div>
+            <div id="Lin21-15" class="quadrado">
+                <input id="L21Q15" class="char" maxlength="1"> <!-- placeholder="S" -->
+            </div>
+            <div class="quadrado"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const fracasso = document.getElementById('goku')
+    const sucesso = document.getElementById('parabeins')
+
+    function verificar() {
+        const mm = L01Q06.value + L02Q06.value + L03Q06.value + L04Q06.value + L05Q06.value + L06Q06.value + L07Q06.value + L08Q06.value + L09Q06.value + L10Q06.value + L11Q06.value + L12Q06.value + L13Q06.value + L14Q06.value + L15Q06.value + L16Q06.value
+        const quadCore = L01Q09.value + L02Q09.value + L03Q09.value + L04Q09.value + L05Q09.value + L06Q09.value + L07Q09.value + L08Q09.value + L09Q09.value
+        const eprom = L03Q02.value + L03Q03.value + L03Q04.value + L03Q05.value + L03Q06.value
+        const dataBus = L05Q04.value + L06Q04.value + L07Q04.value + L08Q04.value + L09Q04.value + L10Q04.value + L11Q04.value + L12Q04.value
+        const dma = L06Q02.value + L06Q03.value + L06Q04.value
+        const i5 = L06Q06.value + L06Q07.value
+        const cpu = L06Q09.value + L06Q10.value + L06Q11.value
+        const dualCore = L08Q02.value + L08Q03.value + L08Q04.value + L08Q05.value + L08Q06.value + L08Q07.value + L08Q08.value + L08Q09.value + L08Q10.value
+        const registradores = L09Q15.value + L10Q15.value + L11Q15.value + L12Q15.value + L13Q15.value + L14Q15.value + L15Q15.value + L16Q15.value + L17Q15.value + L18Q15.value + L19Q15.value + L20Q15.value + L21Q15.value
+        const flash = L10Q11.value + L11Q11.value + L12Q11.value + L13Q11.value + L14Q11.value
+        const ula = L11Q10.value + L11Q11.value + L11Q12.value
+        const adressBus = L13Q06.value + L13Q07.value + L13Q08.value + L13Q09.value + L13Q10.value + L13Q11.value + L13Q12.value + L13Q13.value + L13Q14.value + L13Q15.value
+        const ram = L13Q08.value + L14Q08.value + L15Q08.value
+        const cs = L14Q05.value + L14Q06.value
+        const i7 = L12Q15.value + L12Q16.value
+        const rom = L18Q14.value + L18Q15.value + L18Q16.value
+
+        if (mm.toLowerCase() != "memória-de-massa" || quadCore.toLowerCase() != "quad-core" || eprom.toLowerCase() != "eprom" || dataBus.toLowerCase() != "data-bus" || dma.toLowerCase() != "dma" || i5.toLowerCase() != "i5" || cpu.toLowerCase() != "cpu" || dualCore.toLowerCase() != "dual-core" || registradores.toLowerCase() != "registradores" || flash.toLowerCase() != "flash" || ula.toLowerCase() != "ula" || adressBus.toLowerCase() != "adress-bus" || ram.toLowerCase() != "ram" || cs.toLowerCase() != "cs" || i7.toLowerCase() != "i7" || rom.toLowerCase() != "rom") {
+            fracasso.play()
+            sucesso.pause()
+            success.style.display = 'none'
+            fail.style.display = 'block'
+            desistir.style.display = 'block'
+        } else {
+            sucesso.play()
+            fracasso.pause()
+            fail.style.display = 'none'
+            success.style.display = 'block'
+        }
+    }
+
+    function revelar() {
+        gabarito.style.display = 'block'
+        L01Q06.placeholder = "M"
+        L02Q06.placeholder = "E"
+        L03Q06.placeholder = "M"
+        L04Q06.placeholder = "Ó"
+        L05Q06.placeholder = "R"
+        L06Q06.placeholder = "I"
+        L07Q06.placeholder = "A"
+        L08Q06.placeholder = "-"
+        L09Q06.placeholder = "D"
+        L10Q06.placeholder = "E"
+        L11Q06.placeholder = "-"
+        L12Q06.placeholder = "M"
+        L13Q06.placeholder = "A"
+        L14Q06.placeholder = "S"
+        L15Q06.placeholder = "S"
+        L16Q06.placeholder = "A"
+
+        L01Q09.placeholder = "Q"
+        L02Q09.placeholder = "U"
+        L03Q09.placeholder = "A"
+        L04Q09.placeholder = "D"
+        L05Q09.placeholder = "-"
+        L06Q09.placeholder = "C"
+        L07Q09.placeholder = "O"
+        L08Q09.placeholder = "R"
+        L09Q09.placeholder = "E"
+
+        L03Q02.placeholder = "E"
+        L03Q03.placeholder = "P"
+        L03Q04.placeholder = "R"
+        L03Q05.placeholder = "O"
+        L03Q06.placeholder = "M"
+
+        L05Q04.placeholder = "D"
+        L06Q04.placeholder = "A"
+        L07Q04.placeholder = "T"
+        L08Q04.placeholder = "A"
+        L09Q04.placeholder = "-"
+        L10Q04.placeholder = "B"
+        L11Q04.placeholder = "U"
+        L12Q04.placeholder = "S"
+
+        L06Q02.placeholder = "D"
+        L06Q03.placeholder = "M"
+        L06Q04.placeholder = "A"
+
+        L06Q06.placeholder = "I"
+        L06Q07.placeholder = "5"
+
+        L06Q09.placeholder = "C"
+        L06Q10.placeholder = "P"
+        L06Q11.placeholder = "U"
+
+        L08Q02.placeholder = "D"
+        L08Q03.placeholder = "U"
+        L08Q04.placeholder = "A"
+        L08Q05.placeholder = "L"
+        L08Q06.placeholder = "-"
+        L08Q07.placeholder = "C"
+        L08Q08.placeholder = "O"
+        L08Q09.placeholder = "R"
+        L08Q10.placeholder = "E"
+
+        L09Q15.placeholder = "R"
+        L10Q15.placeholder = "E"
+        L11Q15.placeholder = "G"
+        L12Q15.placeholder = "I"
+        L13Q15.placeholder = "S"
+        L14Q15.placeholder = "T"
+        L15Q15.placeholder = "R"
+        L16Q15.placeholder = "A"
+        L17Q15.placeholder = "D"
+        L18Q15.placeholder = "O"
+        L19Q15.placeholder = "R"
+        L20Q15.placeholder = "E"
+        L21Q15.placeholder = "S"
+
+        L10Q11.placeholder = "F"
+        L11Q11.placeholder = "L"
+        L12Q11.placeholder = "A"
+        L13Q11.placeholder = "S"
+        L14Q11.placeholder = "H"
+
+        L11Q10.placeholder = "U"
+        L11Q11.placeholder = "L"
+        L11Q12.placeholder = "A"
+
+        L13Q06.placeholder = "A"
+        L13Q07.placeholder = "D"
+        L13Q08.placeholder = "R"
+        L13Q09.placeholder = "E"
+        L13Q10.placeholder = "S"
+        L13Q11.placeholder = "S"
+        L13Q12.placeholder = "-"
+        L13Q13.placeholder = "B"
+        L13Q14.placeholder = "U"
+        L13Q15.placeholder = "S"
+
+        L13Q08.placeholder = "R"
+        L14Q08.placeholder = "A"
+        L15Q08.placeholder = "M"
+
+        L14Q05.placeholder = "C"
+        L14Q06.placeholder = "S"
+
+        L12Q15.placeholder = "I"
+        L12Q16.placeholder = "7"
+
+        L18Q14.placeholder = "R"
+        L18Q15.placeholder = "O"
+        L18Q16.placeholder = "M"
+    }
+
+    function preguica() {
+        L01Q06.value = "m"
+        L02Q06.value = "e"
+        L03Q06.value = "m"
+        L04Q06.value = "ó"
+        L05Q06.value = "r"
+        L06Q06.value = "i"
+        L07Q06.value = "a"
+        L08Q06.value = "-"
+        L09Q06.value = "d"
+        L10Q06.value = "e"
+        L11Q06.value = "-"
+        L12Q06.value = "m"
+        L13Q06.value = "a"
+        L14Q06.value = "s"
+        L15Q06.value = "s"
+        L16Q06.value = "a"
+
+        L01Q09.value = "q"
+        L02Q09.value = "u"
+        L03Q09.value = "a"
+        L04Q09.value = "d"
+        L05Q09.value = "-"
+        L06Q09.value = "c"
+        L07Q09.value = "o"
+        L08Q09.value = "r"
+        L09Q09.value = "e"
+
+        L03Q02.value = "e"
+        L03Q03.value = "p"
+        L03Q04.value = "r"
+        L03Q05.value = "o"
+        L03Q06.value = "m"
+
+        L05Q04.value = "d"
+        L06Q04.value = "a"
+        L07Q04.value = "t"
+        L08Q04.value = "a"
+        L09Q04.value = "-"
+        L10Q04.value = "b"
+        L11Q04.value = "u"
+        L12Q04.value = "s"
+
+        L06Q02.value = "d"
+        L06Q03.value = "m"
+        L06Q04.value = "a"
+
+        L06Q06.value = "i"
+        L06Q07.value = "5"
+
+        L06Q09.value = "c"
+        L06Q10.value = "p"
+        L06Q11.value = "u"
+
+        L08Q02.value = "d"
+        L08Q03.value = "u"
+        L08Q04.value = "a"
+        L08Q05.value = "l"
+        L08Q06.value = "-"
+        L08Q07.value = "c"
+        L08Q08.value = "o"
+        L08Q09.value = "r"
+        L08Q10.value = "e"
+
+        L09Q15.value = "r"
+        L10Q15.value = "e"
+        L11Q15.value = "g"
+        L12Q15.value = "i"
+        L13Q15.value = "s"
+        L14Q15.value = "t"
+        L15Q15.value = "r"
+        L16Q15.value = "a"
+        L17Q15.value = "d"
+        L18Q15.value = "o"
+        L19Q15.value = "r"
+        L20Q15.value = "e"
+        L21Q15.value = "s"
+
+        L10Q11.value = "f"
+        L11Q11.value = "l"
+        L12Q11.value = "a"
+        L13Q11.value = "s"
+        L14Q11.value = "h"
+
+        L11Q10.value = "u"
+        L11Q11.value = "l"
+        L11Q12.value = "a"
+
+        L13Q06.value = "a"
+        L13Q07.value = "d"
+        L13Q08.value = "r"
+        L13Q09.value = "e"
+        L13Q10.value = "s"
+        L13Q11.value = "s"
+        L13Q12.value = "-"
+        L13Q13.value = "b"
+        L13Q14.value = "u"
+        L13Q15.value = "s"
+
+        L13Q08.value = "r"
+        L14Q08.value = "a"
+        L15Q08.value = "m"
+
+        L14Q05.value = "c"
+        L14Q06.value = "s"
+
+        L12Q15.value = "i"
+        L12Q16.value = "7"
+
+        L18Q14.value = "r"
+        L18Q15.value = "o"
+        L18Q16.value = "m"
+    }
+</script>
