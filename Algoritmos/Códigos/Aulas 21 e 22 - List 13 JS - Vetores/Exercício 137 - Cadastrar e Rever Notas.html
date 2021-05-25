@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 137 - Cadastrar e Rever Notas</title>
+</head>
+<body>
+    <input id="notaNova" placeholder="Insira a nota"><br>
+    <button onclick="cadastrar()">Cadastrar</button><br>
+    <input id="intervalo1" placeholder="Primeiro Intervalo"> <input id="intervalo2" placeholder="Segundo intervalo"><br>
+    <button onclick="rever()">Rever as notas</button><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    var listaNotas = []
+    var listaNotasDesejadas = []
+    function cadastrar(){
+        var nota = notaNova.value;
+        listaNotas.push(nota);
+    };
+    
+    function rever(){
+        var nota1 = Number(intervalo1.value);
+        var nota2 = Number(intervalo2.value);
+        var somaNotas = 0
+        var qtdNotas = 0
+        for(var contador=0; contador<listaNotas.length; contador++){
+            if(listaNotas[contador]>=nota1 && listaNotas[contador]<=nota2){
+                somaNotas += Number(listaNotas[contador]);
+                listaNotasDesejadas += `${listaNotas[contador]}, `;
+                ++qtdNotas;
+            };
+        };
+        var media = somaNotas/qtdNotas
+        mostrar.innerHTML = `Foram cadastradas ${qtdNotas} que estão no intervalo de ${nota1} até ${nota2} e a média dessas notas é ${media.toFixed(2)}.<br>
+        Essas são as notas: ${listaNotasDesejadas}`
+    };
+</script>

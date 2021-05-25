@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 136 - Cadastro de Alunos com Pesquisa e Contagem de Repetições</title>
+</head>
+<body>
+<input id="nomeAluno" placeholder="Insira o nome do aluno"><br>
+<button onclick="cadastrar()">Cadastrar</button> <button onclick="pesquisar()">Pesquisar</button>
+<div id="exibirAlunos"></div>
+</body>
+</html>
+<script>
+    var listaAlunos = []
+    function cadastrar(){
+        var aluno = nomeAluno.value
+        listaAlunos.push(aluno)
+        exibirAlunos.innerHTML = ""
+        for (let contador = listaAlunos.length-1; contador >= 0 ; contador--){
+            exibirAlunos.innerHTML += `${listaAlunos[contador]}<br>`
+        }
+    }
+
+    function pesquisar(){
+        var aluno = nomeAluno.value
+        var aparicoes = 0
+        for (let pesquisa = 0; pesquisa < listaAlunos.length; pesquisa++){
+            if(aluno==listaAlunos[pesquisa]){
+                ++aparicoes
+            }
+        }
+        if (aparicoes>0){
+            exibirAlunos.innerHTML = `O ${aluno} aparece ${aparicoes} vezes`
+        }else{
+            exibirAlunos.innerHTML = `O ${aluno}  não está cadastrado`
+        }
+    }
+</script>

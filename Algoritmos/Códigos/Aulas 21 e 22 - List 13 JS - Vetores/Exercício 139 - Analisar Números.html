@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 139 - Analisar Números</title>
+</head>
+
+<body>
+    <input id="numeroQualquer" placeholder="Digite um número qualquer"><br>
+    <button onclick="analisar()">Analisar Histórico</button>
+    <div id="historico"></div>
+    <div id="maiorMenor"></div>
+</body>
+
+</html>
+<script>
+    var listaNumeros = []
+    function analisar() {
+        var numeroNovo = Number(numeroQualquer.value)
+        listaNumeros.push(numeroNovo)
+        historico.innerHTML = " "
+
+        for (let contador = 0; contador < listaNumeros.length; contador++) {
+            var numeroAtual = Number(listaNumeros[contador])
+            if(contador==0){
+                var primeiroNumero = numeroAtual
+                var maior = primeiroNumero
+                var menor = primeiroNumero
+            }
+
+            historico.innerHTML += `${contador + 1}º Número: ${numeroAtual}<br>`
+
+            if (numeroAtual > maior) {
+                maior = numeroAtual
+            }
+            if (numeroAtual < menor) {
+                menor = numeroAtual
+            }
+            maiorMenor.innerHTML = `Maior número da lista: ${maior}<br>
+                                    Menor Número da lista: ${menor}`
+        }
+    }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 138 - Lista Ônibus</title>
+</head>
+
+<body>
+    <input id="nomeLinhaDoOnibus" placeholder="Qual Ônibus você pegou?"> <input id="pesquisarLinha" placeholder="Pesquise por uma linha"><br>
+    <button onclick="gravar()">Gravar Buzão</button> <button onclick="pesquisar()">Pesquisar Linha</button><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    var listaOnibus = []
+    
+    function gravar(){
+        var onibus = nomeLinhaDoOnibus.value;
+        listaOnibus.push(onibus);
+        mostrar.innerHTML=""
+        for(var contador=0; contador < listaOnibus.length; contador++){
+           mostrar.innerHTML += `${listaOnibus[contador]}<br>`
+        }
+    }
+    
+    var listaPosicoesLinhas = []
+    function pesquisar(){
+        var onibus = pesquisarLinha.value
+        var qtdCadastradas = 0
+        existente = false
+        for (var contador = 0; contador < listaOnibus.length; contador++){
+            if(onibus==listaOnibus[contador]){
+                existente=true;
+                ++qtdCadastradas
+                listaPosicoesLinhas.push(contador+1)
+            }
+        }
+        if(existente){
+            mostrar.innerHTML = `Você já pegou essa linha ${qtdCadastradas} vezes, nessa ordem ${listaPosicoesLinhas}`
+        }else{
+            mostrar.innerHTML = "Você nunca peogu essa linha"
+        }
+        listaPosicoesLinhas=[]
+    }
+</script>

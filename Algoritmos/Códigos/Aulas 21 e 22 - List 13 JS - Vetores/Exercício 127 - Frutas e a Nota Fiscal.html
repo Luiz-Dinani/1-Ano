@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 127 - Frutas e a Nota Fiscal</title>
+</head>
+
+<!-- 1) Crie um programa em HTML/JS que:
+a) Tenha um input;
+b) Tenha um botão "Adicionar fruta", que:
+    a.1) Adiciona frutas á uma lista (que aparece na tela, separe-as por <br>);
+c) Tenha um botão "Ver nota fiscal" que: 
+    c.1) Esconde a lista de frutas e mostra o valor total da lista (2,50 cada item);
+    c.2) Mostra a quantidade de itens na lista (não os itens);
+    c.3) Mostra a primeira fruta adiciona na lista;
+    c.4) Mostra a última fruta adicionada na lista; -->
+
+<body>
+    <input id="frutaUser" placeholder="Insira uma fruta"> <br>
+    <button onclick="adicionar()">Adicionar Fruta</button> <button onclick="ver()">Ver nota fiscal</button>
+    <div id="exibirFruta" style="display: block;"></div>
+    <div id="exibirNota" style="display: none;"></div>
+</body>
+</html>
+
+<script>
+    var qtdItens = 0
+    var primeiraFruta = null
+    var frutaNova = null
+    function adicionar(){
+        frutaNova = frutaUser.value
+        ++qtdItens
+        exibirFruta.innerHTML += `${frutaNova} <br>`
+        exibirFruta.style.display = "block"
+        exibirNota.style.display = "none"
+        if (qtdItens==1){
+            primeiraFruta = frutaNova
+        }
+    }
+    function ver(){
+        exibirFruta.style.display = "none"
+        exibirNota.style.display = "block"
+        var valorTotal = qtdItens * 2.50
+         exibirNota.innerHTML = `${valorTotal} <br>`
+         exibirNota.innerHTML += `${qtdItens} <br>`
+         exibirNota.innerHTML += `Primeira fruta adicionada: ${primeiraFruta}<br>`
+         exibirNota.innerHTML += `Última fruta adicionada: ${frutaNova}`
+         
+
+    }
+</script>

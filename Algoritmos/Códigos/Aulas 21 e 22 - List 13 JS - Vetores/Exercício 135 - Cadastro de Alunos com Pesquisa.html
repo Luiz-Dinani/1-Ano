@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 135 - Cadastro de Alunos com Pesquisa</title>
+</head>
+
+<body>
+    <input id="nomeAluno" placeholder="Qual o nome do Aluno?"><br>
+    <button onclick="cadastrar()">Cadastrar</button> <button onclick="pesquisar()">Pesquisar</button>
+    <div id="exibirAlunos"></div>
+</body>
+
+</html>
+<script>
+    var listaAlunos = []
+    function cadastrar(){
+        var existente = false
+        var aluno = nomeAluno.value;
+        for (let contador = listaAlunos.length-1; contador >= 0 && existente == false; contador--){
+            if (aluno.toLowerCase() == listaAlunos[contador].toLowerCase()){
+                alert("Aluno Existente")
+                existente = true
+            }
+        }
+        if (existente == false){
+            listaAlunos.push(aluno)
+            exibirAlunos.innerHTML = "";
+            for (let contador2 = listaAlunos.length - 1; contador2 >= 0; contador2--){
+                exibirAlunos.innerHTML += `${listaAlunos[contador2]}<br>`
+            }
+        }
+    }
+
+    function pesquisar(){
+        var aluno = nomeAluno.value
+        existente = false
+        for (let pesquisas = 0; pesquisas < listaAlunos.length && existente == false; pesquisas++){
+            if (aluno.toLowerCase() == listaAlunos[pesquisas].toLowerCase()){
+                alert(`O aluno ${aluno} já está cadastrado!`)
+                existente=true
+            }
+        }
+        if (existente == false){
+            alert("Aluno não existente")
+        }
+    }
+</script>

@@ -58,8 +58,8 @@ insert into tbAcompanhante (fkAluno, idAcompanhante, nome, relacao) values
 																			(10001, 1, 'Pai do Yan', 'Pai'),
 																			(10007, 1, 'Pai do Caua', 'Pai'),
 																			(10011, 1, 'Pai do Lucas', 'Pai');
--- update tbAcompanhante set fkAluno = 10011 where fkAluno=10012 and idAcompanhante = 1; Tive que mudar algumas fkAluno. Desse jeito funciona perfeitamente, só muda a fk do Aluno que eu queria (uma preocupação seria alterar todas as colunas que tem idAcompanhante = 1, já que ela é a chave primária da tabela e deve ser apresentada no update)
 
+-- update tbAcompanhante set fkAluno = 10011 where fkAluno=10012 and idAcompanhante = 1; Tive que mudar algumas fkAluno. Desse jeito funciona perfeitamente, só muda a fk do Aluno que eu queria (uma preocupação seria alterar todas as colunas que tem idAcompanhante = 1, já que ela é a chave primária da tabela e deve ser apresentada no update)
 select * from tbProjeto;
 select * from tbAluno;
 select * from tbAcompanhante;

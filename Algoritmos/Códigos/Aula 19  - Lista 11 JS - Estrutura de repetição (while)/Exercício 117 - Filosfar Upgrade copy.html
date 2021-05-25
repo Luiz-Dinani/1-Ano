@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 117 - Filosofar Upgrade</title>
+</head>
+
+<body>
+    <input id="fraseUser" placeholder="Insira sua frase"><br>
+    <button onclick="filosofar()">Filosofar</button>
+    <div id="fraseRepetida"></div>
+</body>
+</html>
+
+<script>
+    function filosofar(){
+        var frase = fraseUser.value
+        var repeticoes = 0
+        if(frase==""){
+            alert("Mas qual frase?")
+        }else{
+            while(++repeticoes<=7){
+                fraseRepetida.innerHTML += `${frase}<br>`
+            }
+        }
+    }
+</script>

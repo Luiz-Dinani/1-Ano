@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 114 - Estrutura de Repetição While</title>
+</head>
+<body>
+    <input id="frase" placeholder="Digite a frase aqui"><br>
+    <button onclick="repetir()">Repetir Frase (x10)</button>
+    <div id="repeticoes"></div>
+</body>
+</html>
+
+<script>
+    
+    function repetir() {
+        var frasesMostradas = 0
+        while (++frasesMostradas <= 10) {
+            repeticoes.innerHTML += `${frase.value}<br>`
+        }
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 124 - tic do 3 e 5</title>
+</head>
+
+<body>
+    <button onclick="contar()">Curto 3 e 5</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function contar() {
+        var numAtual = -1 //Usei 
+        while (++numAtual <= 100) {
+            var tri = numAtual % 3 //O % calcula o resto de uma divisão, se numAtual=15, 15%3=0, pois o resto dessa divisão é 0
+            var penta = numAtual % 5
+            if (tri == 0 && penta == 0) {
+                resultado.innerHTML += "É TRI! É PENTA!<br>"
+            } else if (tri == 0) {
+                resultado.innerHTML += "É TRI!<br>"
+            } else if (penta == 0) {
+                resultado.innerHTML += "É PENTA!<br>"
+            } else {
+                resultado.innerHTML += `${numAtual}<br>`
+            }
+        }
+    }
+</script>

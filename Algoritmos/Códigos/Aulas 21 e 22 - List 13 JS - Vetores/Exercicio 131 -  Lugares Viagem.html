@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugares Viajados</title>
+</head>
+
+<body>
+    Insira os lugares para onde já viajou: <input id="ipt_lugares"> 
+    <button onclick="cadastrarLocal()"> Cadastrar Local </button>
+    <br>
+    Qual viagem você deseja relembrar : <input id="ipt_num_viagem" placeholder="Só insira um numero"> 
+    <button onclick="relembrarViagem()">Relembrar viagem</button>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    var locaisViajados = [];
+    function cadastrarLocal(){
+        if(ipt_lugares.value != ""){
+            locaisViajados.push(ipt_lugares.value);
+        }
+        else{
+            alert("Você esqueceu de inserir o local")
+        }
+    }
+    
+    function relembrarViagem(){
+        var contador = ipt_num_viagem.value - 1;
+        if(contador > locaisViajados.length){
+            div_exibir.innerHTML = `Você não fez uma ${contador}ª viagem!`;
+        }
+        else{
+            while(contador < locaisViajados.length){
+                div_exibir.innerHTML += `${locaisViajados[contador]} <br>`;
+                contador++;
+            }
+        }
+
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 121 - Financiamento de Carro</title>
+</head>
+<body>
+    <input id="valorDoCarro" placeholder="Qual o valor do carro?"><br>
+    <input id="qtdParcelas" placeholder="Quantas Parcelas?"><br>
+    <button onclick="calcular()">Ver Parcelas</button>
+    <div id="resultado"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        var valCarro = Number(valorDoCarro.value)
+        var parcelas = Number(qtdParcelas.value)
+        var parcelaAtual = 0
+        var primeiraParcela = valCarro/parcelas
+        var parcelaSeguinte = primeiraParcela * 1.015 //1.015 é a taxa de juros estabelecida no enunciado
+        if(valCarro<1000){
+            alert("Valor total inválido")
+        }else if(parcelas<6){
+            alert("Parcelas inválidas")
+        }else{
+            resultado.innerHTML = `Parcela 1: ${primeiraParcela.toFixed(2)}<br>`
+            while(++parcelaAtual<=parcelas){
+                var parcelaSeguinte = parcelaSeguinte * 1.015
+                resultado.innerHTML += `Parcela ${parcelaAtual}: ${parcelaSeguinte.toFixed(2)} <br>`
+            }
+        }
+    }
+</script>

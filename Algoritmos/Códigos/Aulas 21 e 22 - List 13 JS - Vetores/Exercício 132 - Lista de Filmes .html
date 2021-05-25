@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 132 - Lista de Filmes</title>
+</head>
+<body>
+    <input id="filmeUser" placeholder="Insira um filme"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="exibirFilmes"></div>
+</body>
+</html>
+<script>
+    var listaFilmes = []
+    function cadastrar(){
+        var filme = filmeUser.value
+        listaFilmes.push(filme)
+        exibirFilmes.innerHTML = " "
+        for (let contador = 0; contador < listaFilmes.length; contador++) {
+            exibirFilmes.innerHTML += `${listaFilmes[contador]}<br>`;
+        } 
+    }
+</script>
