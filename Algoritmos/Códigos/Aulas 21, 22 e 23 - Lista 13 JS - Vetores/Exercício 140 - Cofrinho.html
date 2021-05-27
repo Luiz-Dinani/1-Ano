@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 140 - Cofrinho</title>
+</head>
+<body>
+    <input type="date" id="diaDeposito"> <input id="valorDeposito" placeholder="Qual o valor depositado?"><br>
+    <button onclick="guardar()">Guardar</button><br>
+    <input id="intervalo1" type="date">   <input id="intervalo2" type="date"><br>
+    <button onclick="rever()">Rever Depósitos</button>
+
+    <div id="mostrarDepositos"></div>
+    
+</html>
+
+<script>
+    let listaDiaDeposito = []
+    let listaValorDeposito = []
+
+    function guardar(){
+        let dia = diaDeposito.value
+        let valor = Number(valorDeposito.value)        
+        listaDiaDeposito.push(dia)
+        listaValorDeposito.push(valor)
+    }
+
+    function rever(){
+        let inter1 = intervalo1.value
+        let inter2 = intervalo2.value
+        let cor = 0
+        let qtdDiasIntervalo = 0
+        let valorTotalIntervalo = 0
+
+        mostrarDepositos.innerHTML = ""
+        
+        for(let contador = 0; contador < listaDiaDeposito.length; contador++){
+            
+            let diaAtual = listaDiaDeposito[contador]
+            let depositoAtual = listaValorDeposito[contador]
+            
+            if(diaAtual>= inter1 && diaAtual<=inter2){
+                if(++cor==1){
+                    mostrarDepositos.innerHTML += `<span style="background-color: aqua;">Dia: ${diaAtual} Valor Depositado: ${depositoAtual}</span><br>`
+                    ++qtdDiasIntervalo
+                    valorTotalIntervalo += depositoAtual
+                }else{
+                    mostrarDepositos.innerHTML += `<span style="background-color: greenyellow;">Dia: ${diaAtual} Valor Depositado: ${depositoAtual}</span><br>`
+                    cor = 0
+                    ++qtdDiasIntervalo
+                    valorTotalIntervalo += depositoAtual
+                }
+            }
+        }
+        let mediaIntervalo = valorTotalIntervalo/qtdDiasIntervalo
+        mostrarDepositos.innerHTML += `Quantidade de dias no intervalo: ${qtdDiasIntervalo}; Valor total depósitado no intervalo: ${valorTotalIntervalo}; Média diária no Intervalo: ${mediaIntervalo.toFixed(2)}`
+    }
+</script>

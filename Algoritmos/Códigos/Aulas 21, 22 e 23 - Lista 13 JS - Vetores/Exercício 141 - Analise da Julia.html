@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 141 - Analise da Julia</title>
+</head>
+
+<body>
+    <input id="raAluno" placeholder="Qual o RA do Aluno?">
+    <input id="notaAluno" placeholder="Qual a nota do Aluno?"><br>
+    <button onclick="guardar()">Guardar</button><br>
+    <input id="parOuImpar" placeholder="Par ou Impar? (P ou I)"><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    let listaRA = []
+    let listaNota = []
+
+    function guardar(){
+        let ra = raAluno.value
+        let nota = Number(notaAluno.value)
+        listaRA.push(ra)
+        listaNota.push(nota)
+    }
+
+    let listaRaTemp = []
+    let listaNotaTemp = []
+    
+    function analisar(){
+        let PouI = parOuImpar.value.toUpperCase()
+        let somaNotas = 0
+        let qtdNotas = 0
+        mostrar.innerHTML = ""
+
+        if(PouI == "P" || PouI == "I"){
+            for(let contador = 0; contador < listaRA.length; contador++){
+                if(PouI=="P"){
+                    if(listaRA[contador]%2==0){
+                        listaRaTemp.push(listaRA[contador])
+                        listaNotaTemp.push(listaNota[contador])
+                        somaNotas += listaNota[contador]
+                        ++qtdNotas
+                    }
+                }else{
+                    if(listaRA[contador]%2 != 0){
+                        listaRaTemp.push(listaRA[contador])
+                        listaNotaTemp.push(listaNota[contador])
+                        somaNotas += listaNota[contador]
+                        ++qtdNotas
+                    }
+                }
+            }
+        }else{
+            alert("Valor inválido, entre com P ou I")
+        }
+        let media = somaNotas/qtdNotas
+
+        let somaMediaMaior = 0
+        let qtdNotasAcimaDaMedia = 0
+        
+        for(let contador = 0; contador < listaRaTemp.length; contador++){
+            let notaAtual = listaNotaTemp[contador];
+        
+            if(notaAtual>=media){
+                mostrar.innerHTML += `Aluno com RA = ${listaRaTemp[contador]} e nota ${listaNotaTemp[contador]} foi selecionado pois a média é ${media}<br>`
+                somaMediaMaior += notaAtual
+                ++qtdNotasAcimaDaMedia
+            }
+        }
+        let mediaNotasMaiores = somaMediaMaior/qtdNotasAcimaDaMedia
+
+        mostrar.innerHTML += `Quantidade de notas acima da média ${qtdNotasAcimaDaMedia}, a média das maiores notas ${PouI} é ${mediaNotasMaiores}`
+        listaRaTemp = []
+        listaNotaTemp = []
+    }
+    </script>

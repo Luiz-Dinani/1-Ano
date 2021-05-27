@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 142 - Loja Eletrônica</title>
+</head>
+<body>
+    <input id="nomeDoProduto" placeholder="Nome do Produto"> <input id="precoDeCompra" placeholder="Preco de Compra"><br>
+    <button onclick="cadastrar()">Cadastrar</button> <button onclick="relatorio()">Relatório de Estoque</button><br><br>
+    <div id="mostrarRelatorio"></div>
+</body>
+</html>
+<script>
+    let listaProdutos = []
+    let listaPrecos = []
+
+    function cadastrar(){
+        let produto = nomeDoProduto.value
+        let precoCompra = precoDeCompra.value
+        
+        listaProdutos.push(produto)
+        listaPrecos.push(precoCompra)
+    }
+
+    function relatorio(){
+        let maiorPreco = listaPrecos[0]
+        let menorPreco = listaPrecos[0]
+        let somaPrecos = 0
+        let qtdProdutos = listaProdutos.length
+        let produtoMaisBarato = ""
+        let produtoMaisCaro = ""
+        
+        mostrarRelatorio.innerHTML = ""
+        mostrarRelatorio.innerHTML = `Total de Produtos: ${listaProdutos.length}<br><br>`
+        
+        for(let contador = 0; contador < listaProdutos.length; contador++) {
+            let produtoAtual = listaProdutos[contador]
+            let precoAtual = Number(listaPrecos[contador])
+            
+            if(maiorPreco<precoAtual){
+                maiorPreco = precoAtual
+                produtoMaisCaro = produtoAtual
+            }else if(menorPreco>precoAtual){
+                menorPreco = precoAtual
+                produtoMaisBarato = produtoAtual
+            }
+            somaPrecos += precoAtual
+
+            mostrarRelatorio.innerHTML += `Produto ${contador+1}: ${produtoAtual}<br>
+            Preço de Compra: R$ ${listaPrecos[contador]}. Vender por R$ ${listaPrecos[contador]*1.25}<br><br>`
+        }
+        let media = (somaPrecos/qtdProdutos)*1.25
+        
+        mostrarRelatorio.innerHTML += `O Produto mais caro é ${produtoMaisCaro}, já o mais barato é ${produtoMaisBarato}.<br>
+        A soma do preço de compra dos produtos é ${somaPrecos} e a média dos preços de venda é ${media.toFixed(2)}`
+
+    }
+</script>
