@@ -1,0 +1,12 @@
+label:hover{
+  cursor: pointer;
+}
+.legenda{
+  display: block;
+  font-weight: bold;
+  padding-top: 1%;
+}
+
+.divExibir{
+  display: none
+}

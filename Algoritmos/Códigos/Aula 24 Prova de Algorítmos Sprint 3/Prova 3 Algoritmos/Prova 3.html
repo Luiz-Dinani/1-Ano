@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 3</title>
+</head>
+
+<body>
+    <button onclick="mostrarCadastrar()">Cadastrar Produtos</button>
+    <button onclick="mostrarIniciarVenda()">Iniciar Nova Venda</button>
+    <div id="formularios">
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function mostrarCadastrar() {
+        formularios.innerHTML = `
+        <input id="codProduto" placeholder="Código do Produto"><br>       
+        <input id="nomeProduto" placeholder="Nome do Produto"><br>
+        <input id="precoUniProduto" placeholder="Preço do Produto"><br>
+        <input id="qtdEstoque" placeholder="Quantidade no Estoque"><br>
+        <button onclick="salvar()">Salvar Produto</button><br>
+        `
+    }
+
+    let listaCodigos = []
+    let listaNomes = []
+    let listaPrecos = []
+    let listaQuantidades = []
+
+    function salvar() {
+        let codigo = codProduto.value
+        let nome = nomeProduto.value
+        let preco = Number(precoUniProduto.value)
+        let qtd = Number(qtdEstoque.value)
+        let existente = false
+
+        for (let contador = 0; contador < listaCodigos.length; contador++) {
+            let produtoAtual = listaCodigos[contador];
+            if (produtoAtual == codigo) {
+                formularios.innerHTML = "PRODUTO JÁ CADASTRADO!"
+                existente = true
+            }
+        }
+        if (existente == false) {
+            listaCodigos.push(codigo)
+            listaNomes.push(nome)
+            listaPrecos.push(preco)
+            listaQuantidades.push(qtd)
+            alert("Produto Cadastrado com sucesso!")
+        }
+    }
+
+    function mostrarIniciarVenda() {
+        formularios.innerHTML = `
+        <input id="codProdutoVenda" placeholder="Código do Produto"><br>
+        <input id="qtdVendida" placeholder="Quantidade Vendida"><br>
+        <button onclick="vender()">Registrar Venda</button><br>
+        <button onclick="finalizar()">Finalizar Venda</button><br>
+        <div id="mostrarRelatorio"></div>
+        `
+    }
+
+    let listaCodigosVendas = []
+    let listaQuantidadesVendas = []
+    let listaNomesVendas = []
+    let listaPrecosVendas = []
+    
+    function vender() {
+        let codigoVender = codProdutoVenda.value
+        let qtdVender = Number(qtdVendida.value)
+        let nomeVender = ""
+        let precoVender = 0
+        let produtoInexistente = true
+        let qtdSuficiente = true
+
+        for (let contadorProduto = (codigoVender-1); contadorProduto < listaQuantidades.length && produtoInexistente; contadorProduto++) {
+            let codigoProdutoEstoque = Number(listaCodigos[contadorProduto]);
+            let qtdNoEstoque = Number(listaQuantidades[contadorProduto]);
+            nomeVender = listaNomes[contadorProduto]
+            precoVender = Number(listaPrecos[contadorProduto]);
+
+            if (qtdVender >= qtdNoEstoque) {
+                qtdSuficiente = false
+            }
+
+            if (codigoVender == codigoProdutoEstoque) {
+                produtoInexistente = false
+            }
+        }
+
+        if (produtoInexistente == false && qtdSuficiente) {
+            listaCodigosVendas.push(codigoVender)
+            listaQuantidades[] = 
+            listaNomesVendas.push(nomeVender)
+            listaPrecosVendas.push(precoVender)
+            alert('Venda Registrada com sucesso!')
+        } else if (produtoInexistente) {
+            alert("Produto não Encontrado")
+        } else {
+            alert("Estoque Insuficiente")
+        }
+    }
+
+    function finalizar() {
+        mostrarRelatorio.innerHTML = ""
+        mostrarRelatorio.innerHTML = `Total de Produtos: ${listaCodigosVendas.length}<br><br>`
+
+        if(listaQuantidadesVendas.length==0){
+            alert("Lista de vendas está vazia! Registre uma nova venda.")
+            mostrarRelatorio.innerHTML = ""
+        }else{
+            for (let contador = 0; contador < listaNomes.length; contador++) {
+                let produtoAtual = listaNomesVendas[contador]
+                let precoAtual = Number(listaPrecosVendas[contador])
+                let qtdAtual = Number(listaQuantidadesVendas[contador])
+                
+                
+                mostrarRelatorio.innerHTML += `Produto ${contador + 1}: ${produtoAtual}<br>
+                Valor Unitário: ${precoAtual} Unidades Vendidas: ${qtdAtual}<br>
+                Sub-Total: R$ ${precoAtual * qtdAtual}<br><br>`
+            }
+        }
+            
+        listaCodigosVendas = []
+        listaQuantidadesVendas = []
+        listaNomesVendas = []
+        listaPrecosVendas = []
+    }
+</script>

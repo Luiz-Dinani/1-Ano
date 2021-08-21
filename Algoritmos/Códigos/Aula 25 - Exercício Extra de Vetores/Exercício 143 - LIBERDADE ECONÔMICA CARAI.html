@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 143 - LIBERDADE ECONÔMICA CARAI</title>
+</head>
+<!-- 
+    A forma mais correta de classificar um país entre "Socialista" e "Capitalista" é medir seu grau de liberdade econômica. Quanto maior a liberdade econômica, mais capitalista é um país. E quanto menor, mais socialista ele é. O grau de liberdade econômica dos países é constantemente avaliado e mantido atualizado em https://www.heritage.org/index/ranking.
+
+Ao avaliar esse ranking de forma imparcial e racional, sem paixões ideológicas, e confrontarmos ele com outros rankings de países, percebemos que os países com maior liberdade econômica (ou seja, mais capitalistas), sem exceção, possuem maior IDH, maiores rendas per capita, menos pobreza e menos desemprego. Já a imensa maioria dos com menor liberdade econômica vão mal em quase todos os indicadores.
+
+Esse ranking desmente ums dos mitos políticos mais propagados atualmente: Que os países nórdicos seriam socialistas. Na verdade, eles estão muito bem posicionados dentre os 180 países do ranking de liberdade econômica (Dinamarca em 14º, Finlândia em 20º, Islândia em 11º, Noruega em 26º e Suécia em 19º) , ou seja, são muito capitalistas. O Brasil está na 150ª posição sendo, tecnicamente, muito mais socialista do que os países nórdicos.
+
+Outra constatação matemática e racional: os países africanos com menor pobreza e maior IDH também são os com melhor colocação no ranking de liberdade econômica nesse continente, ou seja, os mais capitalistas.
+
+Como o estudo abrange o mundo inteiro, não adianta argumentar sobre determinado país ter sido colonizador/colonizado no passado, extensão territorial, tamanho da população, clima, raça, religião, etc. Há países de todos os tipos no topo e na parte de baixo na tabela. O único fator em comum que valeu para a qualidade de vida nos países, independente de outros fatores, acabou sendo a liberdade econômica.
+
+Esse ranking agrupa os países como, economicamente: Livres, Quase livres, Moderadamente livres, Quase reprimidos e Reprimidos. A Suécia, por exemplo, é "Quase Livre" na 19ª posição. A Noruega está na mesma categoria, na 26ª posição. O Brasil é considerado "Quase reprimido", na 150ª posição. A Austrália, que está há nada menos que 27 anos sem recessão alguma, é considerado "livre", na 5ª posição.
+Sua tarefa é elaborar um programa para calcular os prováveis IDH e desemprego de países com base em sua liberdade econômica.
+
+Nesse programa, o grau de liberdade econômica de um país é um valor entre 0 e 100 (onde 0 é a menor liberdade e 100 é a maior liberdade econômica). E os grupos de liberdade econômica são:
+
+LIVRE: Maior que 80 até 100
+
+QUASE LIVRE: Maior que 70 até 80
+
+MODERADAMENTE LIVRE: Maior que 60 até 70
+
+QUASE REPRIMIDO: Maior que 50 até 60
+
+REPRIMIDO: De 0 a 50
+
+
+
+a) Na tela do programa devem haver campos para:
+
+- Cadastrar o nome de um país
+
+- Cadastrar a população de um país
+
+- Cadastrar o grau de liberdade econômica de um país
+
+b) Deve haver um botão "Cadastrar País", que registra essas 3 informações em algum lugar no programa.
+
+c) Caso a população informada seja menor que 1000 ou o grau de liberdade econômica esteja fora do intervalo válido, exiba um alert "Valores inválidos!" e ignore o cadastro.
+
+d) O usuário cadastra quantos países quiser.
+
+e) Deve haver um outro botão, o "Analisar". Ao ser clicado, ele exibe um relatório com todos os países cadastrados, como no exemplo abaixo:
+
+
+
+País 1:  Singapura
+Categoria: Livre
+Habitantes: 5399200
+IDH médio provável: 0.85    
+Desemprego médio provável: 5%, ou seja, talvez 269960 estejam sem emprego
+
+
+
+País 2:  Moçambique
+Categoria: Reprimido
+Habitantes: 29500000
+IDH médio provável: 0.50    
+Desemprego médio provável: 20%, ou seja, talvez 5900000 estejam sem emprego
+
+
+
+
+Abaixo das informações de cada país, deve aparecer uma foto, segundo as regras a seguir:
+- Do Murray Rothbard, caso o país seja Livre.
+
+
+
+- Do Milton Friedman, caso o país seja Quase Livre.
+
+
+
+- Do John Maynard Keynes, caso o país seja Moderadamente Livre.
+
+
+
+- Do George Bernard Shaw, caso o país seja Quase Reprimido.
+
+
+
+- Do Karl Marx, caso o país seja Reprimido.
+
+
+
+Para saber como montar as frases por país, considere que os IDH e nível de desemprego médios do país, conforme seu grau de liberdade econômica:
+
+LIVRE -  IDH médio: 0.85. Desemprego médio: 5%.
+
+QUASE LIVRE -  IDH médio: 0.77. Desemprego médio: 7%.
+
+MODERADAMENTE LIVRE -  IDH médio: 0.74. Desemprego médio: 8%.
+
+QUASE REPRIMIDO -  IDH médio: 0.65. Desemprego médio: 15%.
+
+REPRIMIDO -  IDH médio: 0.60. Desemprego médio: 22%.
+
+
+
+O número provável de desempregado você deve calcular com base na porcentagem provável.
+ -->
+<body>
+    <input id="nomePais" placeholder="Qual o nome do País?"><br>
+    <input id="populacaoPais" placeholder="Qual a populacao do País?"><br>
+    <input id="liberdadePais" placeholder="Qual a grau de liberdade econômica do País?"><br>
+    <button onclick="cadastrar()">Cadastrar País</button>
+    <button onclick="analisar()">Analisar</button>
+    <div id="paises"></div>
+</body>
+
+
+</html>
+<script>
+    let listaNomePais = [];
+    let listaPopulacaoPais = [];
+    let listaLiberdadePais = [];
+
+    function cadastrar() {
+        let nome = nomePais.value;
+        let populacao = Number(populacaoPais.value);
+        let liberdade = Number(liberdadePais.value);
+
+        if (populacao < 1000 || liberdade < 0 || liberdade > 100) {
+            alert("Vish, fi, dados inválidos!");
+        } else {
+            listaNomePais.push(nome);
+            listaPopulacaoPais.push(populacao);
+            listaLiberdadePais.push(liberdade);
+            alert("País Cadastrado!")
+        }
+    }
+
+    function analisar() {
+        let categoria = ""
+        let IDH = 0
+        let pctDesemprego = 0
+        let desempregados = 0
+        let economista = ""
+        paises.innerHTML = " "
+
+        for (let contador = 0; contador < listaNomePais.length; contador++) {
+            let paisAtual = listaNomePais[contador];
+            let populacaoAtual = listaPopulacaoPais[contador];
+            let liberdadeAtual = listaLiberdadePais[contador];
+
+            if (liberdadeAtual <= 50) {
+                categoria = "Reprimido"
+                IDH = 0.60
+                pctDesemprego = 0.22
+                desempregados = populacaoAtual*pctDesemprego
+                economista = "https://media.gazetadopovo.com.br/rodrigo-constantino/2016/12/blog-1487-10bd89dc.jpg"
+            } else if (liberdadeAtual <= 60) {
+                categoria = "Quase Reprimido"
+                IDH = 0.65
+                pctDesemprego = 0.15
+                desempregados = populacaoAtual*pctDesemprego
+                economista = "https://vegazeta.com.br/wp-content/uploads/2018/05/Shaw.jpg"
+            } else if (liberdadeAtual <= 70) {
+                categoria = "Moderadamente Livre"
+                IDH = 0.74
+                pctDesemprego = 0.08
+                desempregados = populacaoAtual*pctDesemprego
+                economista = "https://pbs.twimg.com/media/DXroQI6VMAE7NF7?format=jpg&name=small"
+            } else if (liberdadeAtual <= 80) {
+                categoria = "Quase Livre"
+                IDH = 0.77
+                pctDesemprego = 0.07
+                desempregados = populacaoAtual*pctDesemprego
+                economista = "https://ideiasradicais.com.br/wp-content/uploads/2019/10/Milton-Friedman-1.jpg"
+            } else {
+                categoria = "Livre"
+                IDH = 0.85
+                pctDesemprego = 0.05
+                desempregados = populacaoAtual*pctDesemprego
+                economista = "https://i1.wp.com/nyc3.digitaloceanspaces.com/institutoliberal/2019/03/02/blog/economia/Murray-Newton-Rothbard-Libertarianismo.png?resize=800%2C445&ssl=1"
+            }
+
+            paises.innerHTML += `País ${contador+1}: <strong>${paisAtual}</strong><br>
+            Categoria: <strong>${categoria}</strong><br>
+            Habitantes: <strong>${populacaoAtual}</strong><br>
+            IDH Médio Provável: <strong>${IDH}</strong><br>
+            Desemprego médio provável: <strong>${pctDesemprego*100}%</strong>, ou seja, talvez <strong>${desempregados.toFixed(0)}</strong> estejam sem emprego<br>
+            ${economista}
+            <img src="${economista}"><br><br>
+            `
+        }
+    }
+</script>

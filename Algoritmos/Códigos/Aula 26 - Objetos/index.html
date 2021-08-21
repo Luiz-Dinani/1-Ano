@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>repl.it</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="script.js">
+	</script>
+</head>
+
+<body>
+
+	<div>
+		<h1>Bem Vindo ao BandChess!</h1>
+		<h2>Cadastre o Jogador da Vez</h2>
+		<br>
+
+      <label class="legenda" for="nome">Nome do Jogador:</label>
+      <input id="nome">
+      <br>
+      <label class="legenda" for="idade">Idade:</label> 
+      <input id="idade">
+      <br>
+     <label class="legenda" for="rating">Rating</label>
+      <input type="text" id="rating">
+      <br>
+      <label class="legenda" for="titulo">Titulo</label>
+      <select name="" id="titulo">
+        <option value="Nenhum">Nenhum</option>
+        <option value="MestreFide">Mestre FIDE</option>
+        <option value="MestreInternacional">
+          Mestre Internacional
+        </option>
+        <option value="GrandeMestre">Grande Mestre</option>
+      </select>
+      <br>
+      <label class="legenda" for="corPeca">Cor da Peça:</label>
+      <select id="corPeca">
+        <option value="Brancas">Brancas</option>
+        <option value="Pretas">Pretas</option>
+      </select>
+
+      <br>
+      <br>
+      
+      <button onclick="cadastrar()">Cadastrar Jogador</button>
+      <br>
+      <br>
+      
+      <div class="divExibir" id="exibirJogador">
+        <table id="dadosJogador">
+          <tr>
+            <th>Nome:</th>
+            <td id="nomeCadastro"></td>
+          </tr>
+          <tr>
+            <th>Idade</th>
+            <td id="idadeCadastro"></td>
+          </tr>
+          <tr>
+            <th>Rating:</th>
+            <td id="ratingCadastro"></td>
+          </tr>
+          <tr>
+            <th>Titulo:</th>
+            <td id="tituloCadastro"></td>
+          </tr>
+          <tr>
+            <th>Cor Das Pecas:</th>
+            <td id="corPecasCadastro"></td>
+          </tr>
+          
+        </table>
+      </div>
+      
+    </div>
+  </body>
+</html>
+
+<script>
+  function cadastrar(){
+      var nomeJogador = nome.value;
+      var idadeJogador = idade.value;
+      var ratingJogador = rating.value;
+      var tituloJogador = titulo.value;
+      var corPecaJogador = corPeca.value;
+      
+      Jogador.nome = nomeJogador;
+      Jogador.idade = idadeJogador;
+      Jogador.rating = ratingJogador;
+      Jogador.titulo = tituloJogador;
+      Jogador.ladoTabuleiro = corPecaJogador;
+
+      alert("Jogador Cadastrado com Sucesso!")
+      let jogadorAtual = Jogador
+
+      mostrarJogador(jogadorAtual);
+    }
+    
+    function mostrarJogador(jogadorAtual){
+      exibirJogador.style.display = "Block"
+      nomeCadastro.innerHTML = jogadorAtual.nome;
+      idadeCadastro.innerHTML = jogadorAtual.idade;
+      ratingCadastro.innerHTML = jogadorAtual.rating;
+      tituloCadastro.innerHTML = jogadorAtual.titulo;
+      corPecasCadastro.innerHTML = jogadorAtual.ladoTabuleiro;
+    }
+</script>
