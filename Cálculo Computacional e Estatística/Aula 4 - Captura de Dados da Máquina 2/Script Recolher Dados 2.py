@@ -1,42 +1,65 @@
 import psutil
 
+print('Olá, seja bem vindo!')
+
 #Variáveis CPU
 qtdCpusTotal = psutil.cpu_count()
 qtdCpusFisicas = psutil.cpu_count(logical = False)
-pctCpus = psutil.cpu_percent(percpu = True, interval = 10)
-freqCpus = psutil.cpu_freq()
+freqCpus = psutil.cpu_freq().current
 
 #Variáveis RAM
 dadosRam = psutil.virtual_memory()
 totalRamGB = dadosRam.total/pow(2,30)
-livreRamGB = dadosRam.avaliable/pow(2,30)
+livreRamGB = dadosRam.free/pow(2,30)
+ocupadoRamGB = dadosRam.used/pow(2,30)
+ocupadoRamPct = dadosRam.percent
 
 #Variáveis Disco
-dadosDisco = psutil.disk_usage(c:\\)
+discoUser = input("Qual partição do disco você vai querer monitorar? (Escreva apenas a letra, por exemplo C)")
+dadosDisco = psutil.disk_usage(f'{discoUser}:\\')
 totalDiscoGB = dadosDisco.total/pow(2,30)
 livreDiscoGB = dadosDisco.free/pow(2,30)
-pctDiscoOcupado = dadosDisco.percent
+ocupadoDiscoPct = dadosDisco.percent
+ocupadoDiscoGB = (totalDiscoGB*(ocupadoDiscoPct/100))
 
 
-print('Olá, seja bem vindo!')
-print(f"Você tem um total de {qtdCpusTotal}, sendo {qtdCpusFisicas} físicas;")
-print(f"Sua ram instalada é de {totalRamGB}")
-print(f"Seu disco tem um tamanho total de {totalDiscoGB}GB;")
+print(f"Você tem um total de {qtdCpusTotal} CPUS, sendo {qtdCpusFisicas} físicas;")
+print(f"Sua ram instalada é de {totalRamGB:.2f} GB")
+print(f"Seu disco {discoUser.upper()} tem um tamanho total de {totalDiscoGB:.2f} GB;")
 
-for (i=1, i<10, i++):
-    pctCpus
+for index in range(10):
+    pctCpus = psutil.cpu_percent(percpu = True, interval = 5)
     freqCpus
-    listaPctCpu = [pctCpus[0], pctCpus[1], pctCpus[2], pctCpus[3]]
+    listaPctCpu = []
+
+    for i in range(qtdCpusTotal):
+        listaPctCpu.append(pctCpus[i])
 
     dadosRam
     livreRamGB
+    ocupadoRamGB
+    ocupadoRamPct
 
     dadosDisco
     livreDiscoGB
-    pctDiscoOcupado
+    ocupadoDiscoPct
+    ocupadoDiscoGB
 
-    print("Uso das CPUs")
-    print(f"{}
+    print("Monitoramento de CPUs")
+    print(f"Frequência das CPUs {freqCpus} MHz")
+    for i in range(qtdCpusTotal):
+        print(f"CPU {i+1} {listaPctCpu[i]} %")
+
+    print("\n")
+
+    print("Monitoramento de RAM")
+    print(f"Livre: {livreRamGB:.2f} GB ({(100-ocupadoRamPct):.2f} %) \nUsado: {ocupadoRamGB:.2f} GB ({ocupadoRamPct} %)" + 
+           f"\nTotal: {totalRamGB:.2f} GB")
+
+    print("\n")
+
+    print(f"Monitoramento do Disco {discoUser.upper()}")
+    print(f"Livre: {livreDiscoGB:.2f} GB ({100-ocupadoDiscoPct:.2f} %)" + 
+           f"\nUsado: {ocupadoDiscoGB:.2f} GB ({ocupadoDiscoPct:.2f} %) \nTotal de {totalDiscoGB:.2f} GB")
     
-
-
+    print("\n")
