@@ -24,6 +24,11 @@ public class ProgramaCampeonato {
         //Rodada 3
         cor.registrarEmpate();
         pal.registrarEmpate();
+    
+        //Finalizar Rodada
+        System.out.println("Final de Temporada");
+        cor.finalizarRodada();
+        pal.finalizarRodada();
     }
     
 }
