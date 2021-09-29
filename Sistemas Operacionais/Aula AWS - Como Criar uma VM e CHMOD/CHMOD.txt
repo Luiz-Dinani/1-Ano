@@ -1,0 +1,34 @@
+Aula de HJ é sobre o chmod
+
+Ele serve pra alterar as permissões de escrita, leitura e execução de um arquivo
+
+Para ver as permissões atuais de um arquivo use ls -l no diretório do arquivo
+
+o primeiro espaço diz se é um arquivo ou um diretório (d)
+
+A partir do segundo, cada 3 grupos de caracteres se referem ao(s)
+
+1) O usuario dono
+2) O grupo dono
+3) Outros
+
+Cada permissão tem um peso em octal, veja
+
+para dar permissão total: rwx (111) = 7
+
+apenas leitura: r--(100) = 4
+
+leitura e escrita rw-(110) = 6
+
+Então chmod arqSO1 746 significa que o user dono tem permissão total, membros
+do grupo do user tem apenas leitura e membros de outros grupos podem ler e 
+escrever
+
+
+
+
+
+
+CHOWN - CHange OWNer
+
+sudo chown arqSO1 novoDono
