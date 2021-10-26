@@ -57,8 +57,19 @@ public class ListaUtil {
         return null;
     }
     
-    public Boolean hasDuplicidade(){
-        
-        return null;
+    public Boolean hasDuplicidade() {
+    Boolean duplicidades = false;
+      if (inteiros.size() != 0) {
+         for (Integer inteiro : inteiros) {
+             for (Integer inteiro2 : inteiros) {
+                 if (inteiro == inteiro2) {
+                     duplicidades = true;
+                     return duplicidades; //O return quebra o laço, então assim que achar uma duplicidade, a função acaba
+                  }
+              }
+          }
+      }
+     return duplicidades; //Ainda precisa desse return pro caso de não ter duplicidade retornar false
     }
+}
 }
