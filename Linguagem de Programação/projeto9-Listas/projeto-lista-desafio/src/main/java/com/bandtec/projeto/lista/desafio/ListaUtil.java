@@ -6,70 +6,101 @@ import java.util.ArrayList;
 public class ListaUtil {
 
     private List<Integer> inteiros;
-    
+
     public ListaUtil() {
         this.inteiros = new ArrayList<>();
     }
-    
-    public Integer count(){
+
+    public Integer count() {
         Integer contador = 0;
         for (Integer inteiro : inteiros) {
-             contador++;
+            contador++;
         }
         return contador;
     }
-    
-    public void add(Integer inteiro){
-        inteiros.add(inteiro);
+
+    public void add(Integer inteiro) {
+        if (inteiro != null) {
+            inteiros.add(inteiro);
+        }
     }
-    
-    public void remove(Integer posicao){
+
+    public void remove(Integer posicao) {
         inteiros.remove(posicao);
     }
-    
-    public Integer countPares(){
+
+    public Integer countPares() {
         Integer contador = 0;
         for (Integer inteiro : inteiros) {
-            if(inteiro%2==0){
+            if (inteiro % 2 == 0) {
                 contador++;
             }
         }
         return contador;
     }
-    
-    public Integer countImpares(){
-    
-        return null;
+
+    public Integer countImpares() {
+        Integer contador = 0;
+        for (Integer inteiro : inteiros) {
+            if (inteiro % 2 != 0) {
+                contador++;
+            }
+        }
+        return contador;
     }
-    
-    public Integer somar(){
-    
-        return null;
+
+    public Integer somar() {
+        Integer soma = 0;
+        for (Integer inteiro : inteiros) {
+            soma += inteiro;
+        }
+        return soma;
     }
-    
-    public Integer getMaior(){
-    
-        return null;
+
+    public Integer getMaior() {
+        Integer maior = Integer.MIN_VALUE;
+        if (inteiros.size() != 0) {
+            for (Integer inteiro : inteiros) {
+                if (inteiro > maior) {
+                    maior = inteiro;
+                }
+            }
+        } else {
+            maior = 0;
+        }
+        return maior;
     }
-    
-    public Integer getMenor(){
-    
-        return null;
+
+    public Integer getMenor() {
+        Integer menor = Integer.MAX_VALUE;
+
+        if (inteiros.size() != 0) {
+            for (Integer inteiro : inteiros) {
+                if (inteiro < menor) {
+                    menor = inteiro;
+                }
+            }
+        } else {
+            menor = 0;
+        }
+        return menor;
     }
-    
+
     public Boolean hasDuplicidade() {
-    Boolean duplicidades = false;
-      if (inteiros.size() != 0) {
-         for (Integer inteiro : inteiros) {
-             for (Integer inteiro2 : inteiros) {
-                 if (inteiro == inteiro2) {
-                     duplicidades = true;
-                     return duplicidades; //O return quebra o laço, então assim que achar uma duplicidade, a função acaba
-                  }
-              }
-          }
-      }
-     return duplicidades; //Ainda precisa desse return pro caso de não ter duplicidade retornar false
+        Boolean duplicidades = false;
+        Integer inteiro=0;
+        if (inteiros.size() != 0) {
+            for (int i = 0; i < inteiros.size(); i++) {
+                    inteiro = inteiros.get(i);
+                for (int j = i+1; j < inteiros.size(); j++) { //i=1 para não comparar o 1ª elemento com ele mesmo
+                    Integer inteiro2 = inteiros.get(j);
+                    if (inteiro == inteiro2) {
+                        duplicidades = true;
+                        return duplicidades; //O return quebra o laço, então assim que achar uma duplicidade, a função acaba
+                    }
+                }                
+            }
+        }
+        return duplicidades; //Ainda precisa desse return pro caso de não ter duplicidade retornar false
     }
-}
 }
