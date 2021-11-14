@@ -1,7 +1,6 @@
 package exercicio.vendedor.comissao;
 
 /**
- *
  * @author aluno
  */
 public class VendedorComissaoMaisSalario extends VendedorComissao{
@@ -17,7 +16,6 @@ public class VendedorComissaoMaisSalario extends VendedorComissao{
     public Double calcularSalario() {
         return super.calcularSalario()+salarioFixo; //To change body of generated methods, choose Tools | Templates.
     }    
-
 
     @Override
     public String toString() {
