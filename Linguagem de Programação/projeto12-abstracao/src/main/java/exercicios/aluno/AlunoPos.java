@@ -1,4 +1,4 @@
-package exercicios;
+package exercicios.aluno;
 
 public class AlunoPos extends Aluno{
     private Double nota1;

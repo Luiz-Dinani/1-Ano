@@ -1,4 +1,4 @@
-package exercicios;
+package exercicios.aluno;
 
 public class App {
     public static void main(String[] args) {

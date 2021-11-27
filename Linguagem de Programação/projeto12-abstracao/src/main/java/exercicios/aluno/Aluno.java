@@ -1,4 +1,4 @@
-package exercicios;
+package exercicios.aluno;
 
 public abstract class Aluno {
     private String nome;
